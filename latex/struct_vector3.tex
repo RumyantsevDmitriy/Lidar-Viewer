@@ -1,0 +1,100 @@
+\hypertarget{struct_vector3}{}\doxysection{Vector3 Struct Reference}
+\label{struct_vector3}\index{Vector3@{Vector3}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector3_a2f95716f4705837d6fcc32681f2e0d7b}\label{struct_vector3_a2f95716f4705837d6fcc32681f2e0d7b}} 
+{\bfseries Vector3} (float X)
+\item 
+\mbox{\Hypertarget{struct_vector3_a4e9cc2e1ed74bbc0bd152f5f6ca517f4}\label{struct_vector3_a4e9cc2e1ed74bbc0bd152f5f6ca517f4}} 
+{\bfseries Vector3} (float X, float Y)
+\item 
+\mbox{\Hypertarget{struct_vector3_a139c27d257255f372ff858b1b51f0ccc}\label{struct_vector3_a139c27d257255f372ff858b1b51f0ccc}} 
+{\bfseries Vector3} (float X, float Y, float Z)
+\item 
+\mbox{\Hypertarget{struct_vector3_a696d8ec05fcce1e2c401ef8363fe310d}\label{struct_vector3_a696d8ec05fcce1e2c401ef8363fe310d}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries operator$\ast$} (const float \&value)
+\item 
+\mbox{\Hypertarget{struct_vector3_afbaef4d63494b0446d1374bef98f5d3b}\label{struct_vector3_afbaef4d63494b0446d1374bef98f5d3b}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries operator/} (const float \&value)
+\item 
+\mbox{\Hypertarget{struct_vector3_a69246d8119eccde75b9c39f71c393a51}\label{struct_vector3_a69246d8119eccde75b9c39f71c393a51}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries operator+} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&second)
+\item 
+\mbox{\Hypertarget{struct_vector3_a8a3bbe6f70157294008bba0efacf56d3}\label{struct_vector3_a8a3bbe6f70157294008bba0efacf56d3}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries operator-\/} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&second)
+\item 
+\mbox{\Hypertarget{struct_vector3_ab8d44c2eb5ba41cd01ad40ec958cc8d4}\label{struct_vector3_ab8d44c2eb5ba41cd01ad40ec958cc8d4}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Rotation} (const \mbox{\hyperlink{struct_quaternion}{Quaternion}} \&rotation) const
+\begin{DoxyCompactList}\small\item\em Returns vector multiplied by given \mbox{\hyperlink{struct_quaternion}{Quaternion}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_ad9e2159a30df1717ab50b5c59540086e}\label{struct_vector3_ad9e2159a30df1717ab50b5c59540086e}} 
+void {\bfseries Rotatate} (const \mbox{\hyperlink{struct_quaternion}{Quaternion}} \&rotation)
+\begin{DoxyCompactList}\small\item\em Multiplies current vector instance by given \mbox{\hyperlink{struct_quaternion}{Quaternion}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_a56e4c922f4f4d978bfafe461629f758e}\label{struct_vector3_a56e4c922f4f4d978bfafe461629f758e}} 
+void {\bfseries Multiply\+Pairwise} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&b)
+\begin{DoxyCompactList}\small\item\em Multiplies pairwise components of current \mbox{\hyperlink{struct_vector3}{Vector3}} instance with given \mbox{\hyperlink{struct_vector3}{Vector3}} (a.\+x $\ast$ b.\+x, a.\+y $\ast$ b.\+y, a.\+z $\ast$ b.\+z) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_ad656f1db7947cb5934d719d20652a1d0}\label{struct_vector3_ad656f1db7947cb5934d719d20652a1d0}} 
+float {\bfseries Length} (void) const
+\begin{DoxyCompactList}\small\item\em Returns distance from (0, 0, 0) to current \mbox{\hyperlink{struct_vector3}{Vector3}} instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_aa7312c895f98b2c96763ff761191d83e}\label{struct_vector3_aa7312c895f98b2c96763ff761191d83e}} 
+void {\bfseries Lerp} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&b, float t)
+\begin{DoxyCompactList}\small\item\em Applies linear interpolation between given \mbox{\hyperlink{struct_vector3}{Vector3}} and current \mbox{\hyperlink{struct_vector3}{Vector3}} instance points with parameter t = \mbox{[}0; 1\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_aeb57a69d886703264a95ad64455999a4}\label{struct_vector3_aeb57a69d886703264a95ad64455999a4}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Normal} (void) const
+\begin{DoxyCompactList}\small\item\em Returns new \mbox{\hyperlink{struct_vector3}{Vector3}}, which is a current \mbox{\hyperlink{struct_vector3}{Vector3}} instance with length of 1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_af36f414c637289d15d1dfddeb03c4626}\label{struct_vector3_af36f414c637289d15d1dfddeb03c4626}} 
+void {\bfseries Normalise} (void)
+\begin{DoxyCompactList}\small\item\em Applies normalisation to current \mbox{\hyperlink{struct_vector3}{Vector3}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector3_ab1763ab65a51577c944dd74a94e49761}\label{struct_vector3_ab1763ab65a51577c944dd74a94e49761}} 
+static float {\bfseries Dot} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&a, const \mbox{\hyperlink{struct_vector3}{Vector3}} \&b)
+\begin{DoxyCompactList}\small\item\em Returns dot product between two given \mbox{\hyperlink{struct_vector3}{Vector3}} points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_a18ee4be607a73523d3b5b3e7d0582699}\label{struct_vector3_a18ee4be607a73523d3b5b3e7d0582699}} 
+static \mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Cross} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&a, const \mbox{\hyperlink{struct_vector3}{Vector3}} \&b)
+\begin{DoxyCompactList}\small\item\em Returns cross product between two given \mbox{\hyperlink{struct_vector3}{Vector3}} points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_aa638663401572a48aa046a1537295510}\label{struct_vector3_aa638663401572a48aa046a1537295510}} 
+static \mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Multiply\+Pairwise} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&a, const \mbox{\hyperlink{struct_vector3}{Vector3}} \&b)
+\begin{DoxyCompactList}\small\item\em Returns multiplication of \mbox{\hyperlink{struct_vector3}{Vector3}} pairwise components (a.\+x $\ast$ b.\+x, a.\+y $\ast$ b.\+y, a.\+z $\ast$ b.\+z) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_aa57c63e884f944ae8ada2954c6f67b03}\label{struct_vector3_aa57c63e884f944ae8ada2954c6f67b03}} 
+static float {\bfseries Distance} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&a)
+\begin{DoxyCompactList}\small\item\em Returns distance from (0, 0, 0) to given \mbox{\hyperlink{struct_vector3}{Vector3}} point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_a7772de989e930938c12a1fcc5fd376b2}\label{struct_vector3_a7772de989e930938c12a1fcc5fd376b2}} 
+static float {\bfseries Distance} (\mbox{\hyperlink{struct_vector3}{Vector3}} a, \mbox{\hyperlink{struct_vector3}{Vector3}} b)
+\begin{DoxyCompactList}\small\item\em Returns distance between two given \mbox{\hyperlink{struct_vector3}{Vector3}} points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_a6f932c99af743b6b58c60439cee34759}\label{struct_vector3_a6f932c99af743b6b58c60439cee34759}} 
+static \mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Lerp} (\mbox{\hyperlink{struct_vector3}{Vector3}} a, \mbox{\hyperlink{struct_vector3}{Vector3}} b, float t)
+\begin{DoxyCompactList}\small\item\em Returns \mbox{\hyperlink{struct_vector3}{Vector3}}, which is linear interpolated between two given \mbox{\hyperlink{struct_vector3}{Vector3}} points with parameter t = \mbox{[}0; 1\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_af8b8fcf4aa94b7c24bea8b2224fe3e4d}\label{struct_vector3_af8b8fcf4aa94b7c24bea8b2224fe3e4d}} 
+static \mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Normal} (\mbox{\hyperlink{struct_vector3}{Vector3}} vector)
+\begin{DoxyCompactList}\small\item\em Returns new \mbox{\hyperlink{struct_vector3}{Vector3}}, which is a given \mbox{\hyperlink{struct_vector3}{Vector3}} with length of 1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_ae4abfffcaa413fc6b81e899bf8085721}\label{struct_vector3_ae4abfffcaa413fc6b81e899bf8085721}} 
+static float {\bfseries Angle} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&a, const \mbox{\hyperlink{struct_vector3}{Vector3}} \&b)
+\begin{DoxyCompactList}\small\item\em Returns angle in ratio \mbox{[}-\/1; 1\mbox{]} between two given \mbox{\hyperlink{struct_vector3}{Vector3}} points (use acos to convert ratio to radians) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_a30a21fe9758fd78af5a1a28812cc73f4}\label{struct_vector3_a30a21fe9758fd78af5a1a28812cc73f4}} 
+static \mbox{\hyperlink{struct_quaternion}{Quaternion}} {\bfseries Euler\+Angles} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&angles)
+\begin{DoxyCompactList}\small\item\em Returns quaternion from given axis angles in radians. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_adb119aa21ddc502ca2d06ef0d46a673a}\label{struct_vector3_adb119aa21ddc502ca2d06ef0d46a673a}} 
+static \mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Euler\+Angles} (const \mbox{\hyperlink{struct_quaternion}{Quaternion}} \&q)
+\begin{DoxyCompactList}\small\item\em Converts quaternion to Euler angles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector3_a62616cffddc07e0f290fa9ac8e5648c5}\label{struct_vector3_a62616cffddc07e0f290fa9ac8e5648c5}} 
+static std\+::vector$<$ \mbox{\hyperlink{struct_vector3}{Vector3}} $>$ {\bfseries Circle\+Points} (const unsigned \&n, const float \&radius, const \mbox{\hyperlink{struct_vector3}{Vector3}} \&position, const \mbox{\hyperlink{struct_quaternion}{Quaternion}} \&rotation)
+\begin{DoxyCompactList}\small\item\em Returns list of \mbox{\hyperlink{struct_vector3}{Vector3}} points that form a circle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}\label{struct_vector3_a7e2d3237b29a2f29d7b3d8b2934e35f2}} 
+float {\bfseries x}
+\item 
+\mbox{\Hypertarget{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}\label{struct_vector3_a86eb35a9fa2d5a49e7fad66a35fa9c13}} 
+float {\bfseries y}
+\item 
+\mbox{\Hypertarget{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}\label{struct_vector3_aa8c9461eb24bd2c364258078811a3e9d}} 
+float {\bfseries z}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Geometry.\+h\end{DoxyCompactItemize}

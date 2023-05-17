@@ -1,0 +1,57 @@
+\hypertarget{class_material}{}\doxysection{Material Class Reference}
+\label{class_material}\index{Material@{Material}}
+
+
+{\ttfamily \#include $<$Graphics.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_material_a54cb8cd031556f83f2431cdf0414c15e}\label{class_material_a54cb8cd031556f83f2431cdf0414c15e}} 
+enum class {\bfseries Shader} \{ {\bfseries unlit} = 0
+, {\bfseries diffuse} = 1
+, {\bfseries realistic} = 2
+, {\bfseries faceorient} = 3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_material_a84f61ef7f6d2f4a1b5da9dcd9ea01556}\label{class_material_a84f61ef7f6d2f4a1b5da9dcd9ea01556}} 
+{\bfseries Material} (Shader shader\+Type)
+\item 
+\mbox{\Hypertarget{class_material_aeeaa0e6bc084c50468ced44bfd5e4162}\label{class_material_aeeaa0e6bc084c50468ced44bfd5e4162}} 
+{\bfseries Material} (Shader shader\+Type, float Metallic, float Roughness)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_material_a1a1e50dfb46cf79db10c67841f87d9c2}\label{class_material_a1a1e50dfb46cf79db10c67841f87d9c2}} 
+Shader {\bfseries shader}
+\begin{DoxyCompactList}\small\item\em Shader of this material. Describes how to render an object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_a97fc4551763505f23dac24a9901cee88}\label{class_material_a97fc4551763505f23dac24a9901cee88}} 
+float {\bfseries metallic}
+\begin{DoxyCompactList}\small\item\em In range \mbox{[}0; 1\mbox{]}. If using Unlit shader, this value is ignored. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_abbaeac8374986ca82670ff0d7749c566}\label{class_material_abbaeac8374986ca82670ff0d7749c566}} 
+float {\bfseries roughness}
+\item 
+\mbox{\Hypertarget{class_material_aa8de7572673c8bf388d5e38d20243864}\label{class_material_aa8de7572673c8bf388d5e38d20243864}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries metal}
+\begin{DoxyCompactList}\small\item\em Metal color lerp to. Grey by default. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_aee933cf8b3d51f4cc5c72efe4e9e432d}\label{class_material_aee933cf8b3d51f4cc5c72efe4e9e432d}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries facefront} = \mbox{\hyperlink{struct_color}{Color}}(65, 93, 255)
+\begin{DoxyCompactList}\small\item\em Face orientation indicator color lerp to. Used only in faceorient shader. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_material_a40d5ebc5de2c446021a5816d4104e147}\label{class_material_a40d5ebc5de2c446021a5816d4104e147}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries faceback} = \mbox{\hyperlink{struct_color}{Color}}(255, 40, 62)
+\item 
+\mbox{\Hypertarget{class_material_a2b80a031e5744e897326e9786ef068c2}\label{class_material_a2b80a031e5744e897326e9786ef068c2}} 
+float {\bfseries faceorientfactor} = 0.\+9f
+\begin{DoxyCompactList}\small\item\em Face orientation t parameter for colors. Used only in faceorient shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, отвечающий за материал 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Graphics.\+h\end{DoxyCompactItemize}

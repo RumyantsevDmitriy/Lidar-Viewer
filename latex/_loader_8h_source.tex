@@ -1,0 +1,138 @@
+\hypertarget{_loader_8h_source}{}\doxysection{Loader.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{float}*\ InFloat(std::string\ Numbers,\ \textcolor{keywordtype}{int}\ n\_numb)}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}*\ sp\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[n\_numb];}
+\DoxyCodeLine{00020\ \ \ \ \ std::istringstream\ ss(Numbers);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n\_numb;\ i++)}
+\DoxyCodeLine{00022\ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ ss\ >>\ sp[i];}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ sp;}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ std::vector\ <Vector3>\ OpenObj(\textcolor{keyword}{const}\ std::string\ file\_name)}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector\ <Vector3>\ v\_points\ =\ \{\};}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ point\ =\ \{\};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}*\ v;}
+\DoxyCodeLine{00038\ \ \ \ \ point.x\ =\ 10;}
+\DoxyCodeLine{00039\ \ \ \ \ point.y\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ point.z\ =\ 0;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ std::ifstream\ in;}
+\DoxyCodeLine{00043\ \ \ \ \ in.open(file\_name);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(in,\ line))}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.substr(0,\ 2)\ ==\ \textcolor{stringliteral}{"{}v\ "{}})}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ InFloat(line.substr(2,\ -\/1),\ 3);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ point.x\ =\ v[0];}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ point.y\ =\ v[1];}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ point.z\ =\ v[2];}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ v\_points.push\_back(point);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ in.close();}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{return}\ v\_points;}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ std::vector\ <Vector3>\ OpenLidar(std::string\ file\_name)}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00066\ \ \ \ \ std::vector\ <Vector3>\ v\_points\ =\ \{\};}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ point\ =\ \{\};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}*\ v;}
+\DoxyCodeLine{00069\ \ \ \ \ point.x\ =\ 0;}
+\DoxyCodeLine{00070\ \ \ \ \ point.y\ =\ 0;}
+\DoxyCodeLine{00071\ \ \ \ \ point.z\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ dist\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ psi\ =\ 0,\ phi\ =\ 0;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::ifstream\ in;}
+\DoxyCodeLine{00076\ \ \ \ \ in.open(file\_name);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(in,\ line))}
+\DoxyCodeLine{00079\ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ v\ =\ InFloat(line,\ 3);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ dist\ =\ v[0]\ /\ 100;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ psi\ =\ v[1];}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ phi\ =\ v[2];}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ point.x\ =\ dist\ *\ cos(psi)\ *\ cos(phi);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ point.y\ =\ dist\ *\ cos(psi)\ *\ sin(phi);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ point.z\ =\ dist\ *\ sin(psi);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ v\_points.push\_back(point);}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ in.close();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ v\_points;}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{float}\ MinCoord(std::vector\ <Vector3>\ v)}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{float}\ m\ =\ v[0].z;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ v.size();\ i++)}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[i].z\ <\ m)\ m\ =\ v[i].z;}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ m;}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{float}\ MaxCoord(std::vector\ <Vector3>\ v)}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{float}\ m\ =\ v[0].z;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ v.size();\ i++)}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[i].z\ >\ m)\ m\ =\ v[i].z;}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ m;}
+\DoxyCodeLine{00118\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \mbox{\hyperlink{struct_vector3}{Vector3}}\ GradientColorY(\textcolor{keywordtype}{float}\ z,\ \textcolor{keywordtype}{float}\ z\_max,\ \textcolor{keywordtype}{float}\ z\_min)}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ xyz\_color\ =\ \{\};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{float}\ a\_r\ =\ 8\ /\ ((z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min)\ *\ 5);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{float}\ b\_r\ =\ -\/(13\ *\ z\_max\ +\ 3\ *\ z\_min)\ /\ (5\ *\ (z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min));}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{float}\ c\_r\ =\ z\_max\ *\ (5\ *\ z\_max\ +\ 3\ *\ z\_min)\ /\ (5\ *\ (z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min));}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{float}\ a\_g\ =\ 8\ /\ ((z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min)\ *\ 5);}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{float}\ b\_g\ =\ (13\ *\ z\_max\ +\ 3\ *\ z\_min)\ /\ (5\ *\ (z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min));}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{float}\ c\_g\ =\ z\_max\ *\ (5\ *\ z\_max\ +\ 3\ *\ z\_min)\ /\ (5\ *\ (z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min));}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{float}\ a\_b\ =\ -\/4\ /\ ((z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min));}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{float}\ b\_b\ =\ 4\ *\ (z\_max\ +\ z\_min)\ /\ ((z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min));}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{float}\ c\_b\ =\ -\/4\ *\ (z\_max\ *\ z\_min)\ /\ ((z\_max\ -\/\ z\_min)\ *\ (z\_max\ -\/\ z\_min));}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ xyz\_color.x\ =\ 0;}
+\DoxyCodeLine{00141\ \ \ \ \ xyz\_color.y\ =\ 0;}
+\DoxyCodeLine{00142\ \ \ \ \ xyz\_color.z\ =\ 0;}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ xyz\_color.x\ =\ 255\ *\ (z\ *\ z\ *\ a\_r\ +\ b\_r\ *\ z\ +\ c\_r);}
+\DoxyCodeLine{00145\ \ \ \ \ xyz\_color.y\ =\ 255\ *\ (z\ *\ z\ *\ a\_g\ +\ b\_g\ *\ z\ +\ c\_g);}
+\DoxyCodeLine{00146\ \ \ \ \ xyz\_color.z\ =\ 255\ *\ (z\ *\ z\ *\ a\_b\ +\ b\_b\ *\ z\ +\ c\_b);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{return}\ xyz\_color;}
+\DoxyCodeLine{00149\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ }
+
+\end{DoxyCode}

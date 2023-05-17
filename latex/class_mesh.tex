@@ -1,0 +1,62 @@
+\hypertarget{class_mesh}{}\doxysection{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+
+
+{\ttfamily \#include $<$Graphics.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_adfe945ddbccb365a54f98249db61e9a5}\label{class_mesh_adfe945ddbccb365a54f98249db61e9a5}} 
+{\bfseries Mesh} (const std\+::vector$<$ \mbox{\hyperlink{struct_vector3}{Vector3}} $>$ \&vertex\+List, const std\+::vector$<$ unsigned $>$ \&triangle\+List)
+\item 
+\mbox{\Hypertarget{class_mesh_a4fddadf2c737ff5e81dff1eabfb74f61}\label{class_mesh_a4fddadf2c737ff5e81dff1eabfb74f61}} 
+\mbox{\hyperlink{class_mesh}{Mesh}} {\bfseries operator+} (const \mbox{\hyperlink{class_mesh}{Mesh}} \&second)
+\item 
+\mbox{\Hypertarget{class_mesh_a329aea41bccf7aa114c13c89261279a4}\label{class_mesh_a329aea41bccf7aa114c13c89261279a4}} 
+void {\bfseries Clear} (void)
+\begin{DoxyCompactList}\small\item\em Clears all vertices and triangles lists. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a55b48b1c04997ffa1cc0f332484b3149}\label{class_mesh_a55b48b1c04997ffa1cc0f332484b3149}} 
+void {\bfseries Add\+Position} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&position)
+\begin{DoxyCompactList}\small\item\em Shifts current mesh instance by given \mbox{\hyperlink{struct_vector3}{Vector3}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_ab887fbc57d442876b8c1471dab9595cb}\label{class_mesh_ab887fbc57d442876b8c1471dab9595cb}} 
+void {\bfseries Add\+Rotation} (const \mbox{\hyperlink{struct_quaternion}{Quaternion}} \&rotation)
+\begin{DoxyCompactList}\small\item\em Multiplies current mesh instance by given \mbox{\hyperlink{struct_quaternion}{Quaternion}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a6ee83aec8417de229b2da181cf7f1f9e}\label{class_mesh_a6ee83aec8417de229b2da181cf7f1f9e}} 
+void {\bfseries Add\+Scale} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&scale)
+\begin{DoxyCompactList}\small\item\em Multiplies current mesh instance by scale on each axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_aee2dd5994a5354daea659f3545e8209a}\label{class_mesh_aee2dd5994a5354daea659f3545e8209a}} 
+void {\bfseries Apply\+Transform} (const \mbox{\hyperlink{class_transform}{Transform}} \&transform)
+\begin{DoxyCompactList}\small\item\em Applies transfrom to current mesh instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_afb0a52f65dcfc5dc50d9c7407c4a7dc9}\label{class_mesh_afb0a52f65dcfc5dc50d9c7407c4a7dc9}} 
+static \mbox{\hyperlink{class_mesh}{Mesh}} {\bfseries Generate\+Cone} (const unsigned \&sides, const float \&radius, const float \&height)
+\begin{DoxyCompactList}\small\item\em Generates Cone mesh with given parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a33d47118a42b2ff57ccb174137234189}\label{class_mesh_a33d47118a42b2ff57ccb174137234189}} 
+static \mbox{\hyperlink{class_mesh}{Mesh}} {\bfseries Generate\+Cylinder} (const unsigned \&sides, const float \&radius, const float \&height)
+\begin{DoxyCompactList}\small\item\em Generates Cylinder mesh with given parameters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_ab19199478e8e3309df1525e5257ebb98}\label{class_mesh_ab19199478e8e3309df1525e5257ebb98}} 
+static \mbox{\hyperlink{class_mesh}{Mesh}} {\bfseries Generate\+Cuboid} (const \mbox{\hyperlink{struct_vector3}{Vector3}} \&size)
+\begin{DoxyCompactList}\small\item\em Generates Cuboid mesh with given x, y, z size. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_ae8e2db2cab0218602fa361a7cc79a8d3}\label{class_mesh_ae8e2db2cab0218602fa361a7cc79a8d3}} 
+static \mbox{\hyperlink{class_mesh}{Mesh}} {\bfseries Generate\+Ico\+Sphere} (const float \&radius)
+\begin{DoxyCompactList}\small\item\em Generates Low-\/poly Ico-\/\+Sphere mesh with given radius. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}\label{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_vector3}{Vector3}} $>$ {\bfseries vertices}
+\begin{DoxyCompactList}\small\item\em List of all mesh vertices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}\label{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}} 
+std\+::vector$<$ unsigned $>$ {\bfseries triangles}
+\begin{DoxyCompactList}\small\item\em List of mesh triangles. Triangles are defined as 3-\/pair indexes to vertices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, отвечающий за сложную фигуру 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Graphics.\+h\end{DoxyCompactItemize}

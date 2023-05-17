@@ -1,0 +1,74 @@
+\hypertarget{class_camera}{}\doxysection{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$Components.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_camera_a06117000cc1aa1c779063e1eab3978d9}\label{class_camera_a06117000cc1aa1c779063e1eab3978d9}} 
+void {\bfseries Setup\+Perspective} (float FOV, float Screen\+Ratio, float Near\+Clip, float Far\+Clip)
+\item 
+\mbox{\Hypertarget{class_camera_a70b94d6e9ae81dc3cc77f092823bec4f}\label{class_camera_a70b94d6e9ae81dc3cc77f092823bec4f}} 
+void {\bfseries Setup\+Ortho} (float plane\+Width, float plane\+Height, float Near\+Clip, float Far\+Clip)
+\item 
+\mbox{\Hypertarget{class_camera_a4318e7771ed547a9dd0c1c2fab2f268e}\label{class_camera_a4318e7771ed547a9dd0c1c2fab2f268e}} 
+void {\bfseries Setup\+Default} (void)
+\item 
+\mbox{\Hypertarget{class_camera_ab5c9183066b39cb0e861a915ae3bee00}\label{class_camera_ab5c9183066b39cb0e861a915ae3bee00}} 
+{\bfseries Camera} (\mbox{\hyperlink{struct_vector3}{Vector3}} Camera\+Position)
+\item 
+\mbox{\Hypertarget{class_camera_a932f6c5b187fa9ce57fd0c91ed7206f2}\label{class_camera_a932f6c5b187fa9ce57fd0c91ed7206f2}} 
+{\bfseries Camera} (\mbox{\hyperlink{struct_vector3}{Vector3}} Camera\+Position, \mbox{\hyperlink{struct_vector3}{Vector3}} Target\+Position)
+\item 
+\mbox{\Hypertarget{class_camera_a12b03b41d42136db33e494cd359979ca}\label{class_camera_a12b03b41d42136db33e494cd359979ca}} 
+{\bfseries Camera} (\mbox{\hyperlink{struct_vector3}{Vector3}} Camera\+Position, \mbox{\hyperlink{struct_vector3}{Vector3}} Target\+Position, \mbox{\hyperlink{struct_vector3}{Vector3}} Axis\+Direction)
+\item 
+\mbox{\Hypertarget{class_camera_a722f2cd6ea2792fc82837a1b5085ada5}\label{class_camera_a722f2cd6ea2792fc82837a1b5085ada5}} 
+void {\bfseries Update\+Position} (void) const
+\item 
+\mbox{\Hypertarget{class_camera_a87ca69c5715b949802e3fcd86721393d}\label{class_camera_a87ca69c5715b949802e3fcd86721393d}} 
+float {\bfseries Get\+Far\+Clip} (void) const
+\item 
+\mbox{\Hypertarget{class_camera_a821b2a1b34c20da818dc0dae0765f835}\label{class_camera_a821b2a1b34c20da818dc0dae0765f835}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Get\+Axis} (void) const
+\item 
+\mbox{\Hypertarget{class_camera_af2f3ad7f94f352bf9fb2b40d587776f8}\label{class_camera_af2f3ad7f94f352bf9fb2b40d587776f8}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Get\+Camera\+Position} (void) const
+\item 
+\mbox{\Hypertarget{class_camera_a3df67fb57bb906791f5031db766d7591}\label{class_camera_a3df67fb57bb906791f5031db766d7591}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Get\+Target\+Position} (void) const
+\item 
+\mbox{\Hypertarget{class_camera_a4d320662b8e5afa0e5d884663fbe9dad}\label{class_camera_a4d320662b8e5afa0e5d884663fbe9dad}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries Normal} (void) const
+\item 
+\mbox{\Hypertarget{class_camera_a9840fc478c4b4f93a4509ac83b354d67}\label{class_camera_a9840fc478c4b4f93a4509ac83b354d67}} 
+void {\bfseries Set\+Axis} (\mbox{\hyperlink{struct_vector3}{Vector3}} new\+Axis)
+\item 
+\mbox{\Hypertarget{class_camera_ae55ccf3c836640ac29d3f2ac723398fe}\label{class_camera_ae55ccf3c836640ac29d3f2ac723398fe}} 
+void {\bfseries Set\+Camera\+Position} (\mbox{\hyperlink{struct_vector3}{Vector3}} new\+Position)
+\item 
+\mbox{\Hypertarget{class_camera_ae68a47b4beefcdd1369d0d609f00c1ce}\label{class_camera_ae68a47b4beefcdd1369d0d609f00c1ce}} 
+void {\bfseries Set\+Target\+Position} (\mbox{\hyperlink{struct_vector3}{Vector3}} new\+Position)
+\item 
+\mbox{\Hypertarget{class_camera_a81ba124d46cd8299184a6f2b716710fd}\label{class_camera_a81ba124d46cd8299184a6f2b716710fd}} 
+void {\bfseries Set\+Clip\+Distance} (float Near\+Clip, float Far\+Clip)
+\item 
+\mbox{\Hypertarget{class_camera_ac111553c81da34e4d7c525bd852fccf5}\label{class_camera_ac111553c81da34e4d7c525bd852fccf5}} 
+void {\bfseries Set\+Perspective} (void)
+\item 
+\mbox{\Hypertarget{class_camera_aea029fc76347f12c6f48543894c3e2f0}\label{class_camera_aea029fc76347f12c6f48543894c3e2f0}} 
+void {\bfseries Set\+Ortho} (void)
+\item 
+\mbox{\Hypertarget{class_camera_a39b99b3750dda253173a277627c04ea8}\label{class_camera_a39b99b3750dda253173a277627c04ea8}} 
+void {\bfseries Set\+Available} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс, отвечающий за камеру 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Components.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\hypertarget{struct_vector2}{}\doxysection{Vector2 Struct Reference}
+\label{struct_vector2}\index{Vector2@{Vector2}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector2_a05faf63a7e5bb9884a4289345b70f598}\label{struct_vector2_a05faf63a7e5bb9884a4289345b70f598}} 
+{\bfseries Vector2} (float X)
+\item 
+\mbox{\Hypertarget{struct_vector2_a6cb994a033ee0ce6a9d607b27ec2dc42}\label{struct_vector2_a6cb994a033ee0ce6a9d607b27ec2dc42}} 
+{\bfseries Vector2} (float X, float Y)
+\item 
+\mbox{\Hypertarget{struct_vector2_a79299a44d4daac364ca17bf3d52bc4d3}\label{struct_vector2_a79299a44d4daac364ca17bf3d52bc4d3}} 
+\mbox{\hyperlink{struct_vector2}{Vector2}} {\bfseries operator$\ast$} (const float \&value)
+\item 
+\mbox{\Hypertarget{struct_vector2_a272f1627aba55215a939ce5fbe9a7e81}\label{struct_vector2_a272f1627aba55215a939ce5fbe9a7e81}} 
+\mbox{\hyperlink{struct_vector2}{Vector2}} {\bfseries operator/} (const float \&value)
+\item 
+\mbox{\Hypertarget{struct_vector2_aedfd9ec895e5914358acc88bc69bc8dd}\label{struct_vector2_aedfd9ec895e5914358acc88bc69bc8dd}} 
+\mbox{\hyperlink{struct_vector2}{Vector2}} {\bfseries operator+} (const \mbox{\hyperlink{struct_vector2}{Vector2}} \&second)
+\item 
+\mbox{\Hypertarget{struct_vector2_ac559eaa2d7756a046532c85ee0eedd38}\label{struct_vector2_ac559eaa2d7756a046532c85ee0eedd38}} 
+\mbox{\hyperlink{struct_vector2}{Vector2}} {\bfseries operator-\/} (const \mbox{\hyperlink{struct_vector2}{Vector2}} \&second)
+\item 
+\mbox{\Hypertarget{struct_vector2_a2fa0ab33844c60b7961d64963c265786}\label{struct_vector2_a2fa0ab33844c60b7961d64963c265786}} 
+float {\bfseries Length} (void) const
+\begin{DoxyCompactList}\small\item\em Returns distance from (0, 0) to current \mbox{\hyperlink{struct_vector2}{Vector2}} instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_a7c972318f0c3d72f76342c8f2564dae7}\label{struct_vector2_a7c972318f0c3d72f76342c8f2564dae7}} 
+void {\bfseries Lerp} (\mbox{\hyperlink{struct_vector2}{Vector2}} b, float t)
+\begin{DoxyCompactList}\small\item\em Applies linear interpolation between given \mbox{\hyperlink{struct_vector2}{Vector2}} and current \mbox{\hyperlink{struct_vector2}{Vector2}} instance points with parameter t = \mbox{[}0; 1\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_a70ae204795f7bbe84dc25aff9088e4af}\label{struct_vector2_a70ae204795f7bbe84dc25aff9088e4af}} 
+\mbox{\hyperlink{struct_vector2}{Vector2}} {\bfseries Normal} (void) const
+\begin{DoxyCompactList}\small\item\em Returns new \mbox{\hyperlink{struct_vector2}{Vector2}}, which is a current \mbox{\hyperlink{struct_vector2}{Vector2}} instance with length of 1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_ad678f90f9acae30e124b463537839311}\label{struct_vector2_ad678f90f9acae30e124b463537839311}} 
+void {\bfseries Normalise} (void)
+\begin{DoxyCompactList}\small\item\em Applies normalisation to current \mbox{\hyperlink{struct_vector2}{Vector2}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector2_a99edd0d9065e5aa6faa964f7404da02c}\label{struct_vector2_a99edd0d9065e5aa6faa964f7404da02c}} 
+static float {\bfseries Dot} (\mbox{\hyperlink{struct_vector2}{Vector2}} a, \mbox{\hyperlink{struct_vector2}{Vector2}} b)
+\begin{DoxyCompactList}\small\item\em Returns dot product between two given \mbox{\hyperlink{struct_vector2}{Vector2}} points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_a4a88d47d2b8fa47eb948f055c010bcfd}\label{struct_vector2_a4a88d47d2b8fa47eb948f055c010bcfd}} 
+static float {\bfseries Distance} (\mbox{\hyperlink{struct_vector2}{Vector2}} a)
+\begin{DoxyCompactList}\small\item\em Returns distance from (0, 0) to given \mbox{\hyperlink{struct_vector2}{Vector2}} point. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_add275c8d929eea256bde8f31b489f5c6}\label{struct_vector2_add275c8d929eea256bde8f31b489f5c6}} 
+static float {\bfseries Distance} (\mbox{\hyperlink{struct_vector2}{Vector2}} a, \mbox{\hyperlink{struct_vector2}{Vector2}} b)
+\begin{DoxyCompactList}\small\item\em Returns distance between two given \mbox{\hyperlink{struct_vector2}{Vector2}} points. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_afd029b9113157d50f735c56737740240}\label{struct_vector2_afd029b9113157d50f735c56737740240}} 
+static \mbox{\hyperlink{struct_vector2}{Vector2}} {\bfseries Lerp} (\mbox{\hyperlink{struct_vector2}{Vector2}} a, \mbox{\hyperlink{struct_vector2}{Vector2}} b, float t)
+\begin{DoxyCompactList}\small\item\em Returns \mbox{\hyperlink{struct_vector2}{Vector2}}, which is linear interpolated between two given \mbox{\hyperlink{struct_vector2}{Vector2}} points with parameter t = \mbox{[}0; 1\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_vector2_aec002cad63b11db74648ee2c8aee9c70}\label{struct_vector2_aec002cad63b11db74648ee2c8aee9c70}} 
+static \mbox{\hyperlink{struct_vector2}{Vector2}} {\bfseries Normal} (\mbox{\hyperlink{struct_vector2}{Vector2}} vector)
+\begin{DoxyCompactList}\small\item\em Returns new \mbox{\hyperlink{struct_vector2}{Vector2}}, which is a given \mbox{\hyperlink{struct_vector3}{Vector3}} with length of 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_vector2_a046bb8d17a876acc49415128dc0502f2}\label{struct_vector2_a046bb8d17a876acc49415128dc0502f2}} 
+float {\bfseries x}
+\item 
+\mbox{\Hypertarget{struct_vector2_a0e07bad05f01ed811b909a2eef97f9e2}\label{struct_vector2_a0e07bad05f01ed811b909a2eef97f9e2}} 
+float {\bfseries y}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Geometry.\+h\end{DoxyCompactItemize}

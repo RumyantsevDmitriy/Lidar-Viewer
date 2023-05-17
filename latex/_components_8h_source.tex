@@ -1,0 +1,314 @@
+\hypertarget{_components_8h_source}{}\doxysection{Components.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <gl/freeglut.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Geometry.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Graphics.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Loader.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}LidarViewer.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera}{Camera}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ position,\ target,\ axis;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ perspectiveFov,\ perspectiveRatio;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ orthoHalfWidth,\ orthoHalfHeight;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ clipNear,\ clipFar;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOrtho;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ SetupPerspective(\textcolor{keywordtype}{float}\ FOV,\ \textcolor{keywordtype}{float}\ ScreenRatio,\ \textcolor{keywordtype}{float}\ NearClip,\ \textcolor{keywordtype}{float}\ FarClip)}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ perspectiveFov\ =\ FOV;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ perspectiveRatio\ =\ ScreenRatio;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ clipNear\ =\ NearClip;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ clipFar\ =\ FarClip;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ SetupOrtho(\textcolor{keywordtype}{float}\ planeWidth,\ \textcolor{keywordtype}{float}\ planeHeight,\ \textcolor{keywordtype}{float}\ NearClip,\ \textcolor{keywordtype}{float}\ FarClip)}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ orthoHalfHeight\ =\ planeHeight\ /\ 2.0f;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ orthoHalfWidth\ =\ planeWidth\ /\ 2.0f;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ clipNear\ =\ NearClip;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ clipFar\ =\ FarClip;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ SetupDefault(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ SetupPerspective(60,\ 1.777f,\ 0.1f,\ 50.0f),\ SetupOrtho(12,\ 6.75f,\ 0.1f,\ 50.0f);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ isOrtho\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}()}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ position\ =\ \mbox{\hyperlink{struct_vector3}{Vector3}}();}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ target\ =\ \mbox{\hyperlink{struct_vector3}{Vector3}}(1,\ 0,\ 0);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ axis\ =\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ 1,\ 0);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ SetupDefault();}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}(\mbox{\hyperlink{struct_vector3}{Vector3}}\ CameraPosition)}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ position\ =\ CameraPosition;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ target\ =\ \mbox{\hyperlink{struct_vector3}{Vector3}}(1,\ 0,\ 0);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ axis\ =\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ 1,\ 0);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ SetupDefault();}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}(\mbox{\hyperlink{struct_vector3}{Vector3}}\ CameraPosition,\ \mbox{\hyperlink{struct_vector3}{Vector3}}\ TargetPosition)}
+\DoxyCodeLine{00059\ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ position\ =\ CameraPosition;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ target\ =\ TargetPosition;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ axis\ =\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ 1,\ 0);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ SetupDefault();}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}(\mbox{\hyperlink{struct_vector3}{Vector3}}\ CameraPosition,\ \mbox{\hyperlink{struct_vector3}{Vector3}}\ TargetPosition,\ \mbox{\hyperlink{struct_vector3}{Vector3}}\ AxisDirection)}
+\DoxyCodeLine{00066\ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ position\ =\ CameraPosition;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ target\ =\ TargetPosition;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ axis\ =\ AxisDirection;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ SetupDefault();}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdatePosition(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00074\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ gluLookAt}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ position.x,\ position.y,\ position.z,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ target.x,\ target.y,\ target.z,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ axis.x,\ axis.y,\ axis.z}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{float}\ GetFarClip(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00083\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ clipFar;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ GetAxis(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ axis;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ GetCameraPosition(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ position;}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ GetTargetPosition(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00095\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ target;}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ Normal(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00100\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{struct_vector3}{Vector3}}(target)\ -\/\ \mbox{\hyperlink{struct_vector3}{Vector3}}(position)).\mbox{\hyperlink{struct_vector3_af8b8fcf4aa94b7c24bea8b2224fe3e4d}{Normal}}();}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ SetAxis(\mbox{\hyperlink{struct_vector3}{Vector3}}\ newAxis)}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ axis\ =\ newAxis;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ SetCameraPosition(\mbox{\hyperlink{struct_vector3}{Vector3}}\ newPosition)}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ position\ =\ newPosition;}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTargetPosition(\mbox{\hyperlink{struct_vector3}{Vector3}}\ newPosition)}
+\DoxyCodeLine{00115\ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ target\ =\ newPosition;}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ SetClipDistance(\textcolor{keywordtype}{float}\ NearClip,\ \textcolor{keywordtype}{float}\ FarClip)}
+\DoxyCodeLine{00120\ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ clipNear\ =\ NearClip;}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ clipFar\ =\ FarClip;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPerspective(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00126\ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ gluPerspective(perspectiveFov,\ perspectiveRatio,\ clipNear,\ clipFar);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ isOrtho\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ SetOrtho(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ glOrtho(-\/orthoHalfWidth,\ orthoHalfWidth,\ -\/orthoHalfHeight,\ orthoHalfHeight,\ clipNear,\ clipFar);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ isOrtho\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ SetAvailable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isOrtho)}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ SetOrtho();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ SetPerspective();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_renderer}{Renderer}}}
+\DoxyCodeLine{00154\ \{}
+\DoxyCodeLine{00155\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}\ camera;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{float}\ clamp(\textcolor{keywordtype}{float}\ val,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ min,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ max)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ val\ <\ min\ ?\ min\ :\ val\ >\ max\ ?\ max\ :\ val;}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{float}\ diffusePoint(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keywordtype}{float}\ roughness)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00164\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ roughness\ =\ 1\ -\/\ roughness;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ angle\ =\ (roughness\ *\ fabsf(angle)\ -\/\ roughness);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1\ -\/\ angle\ *\ angle;}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{float}\ realisticPoint(\textcolor{keywordtype}{float}\ angle,\ \textcolor{keywordtype}{float}\ distance,\ \textcolor{keywordtype}{float}\ roughness)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00170\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fabsf(angle)\ *\ diffusePoint(angle,\ roughness)\ *\ (2\ *\ roughness\ -\/\ clamp(distance\ /\ camera.GetFarClip(),\ 0,\ 1));}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{class_renderer}{Renderer}}(\mbox{\hyperlink{class_camera}{Camera}}\ cameraToUse)}
+\DoxyCodeLine{00176\ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ camera\ =\ cameraToUse;}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ SendVertex(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}\&\ vertex)}
+\DoxyCodeLine{00181\ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ glColor3ub(vertex.color.r,\ vertex.color.g,\ vertex.color.b);}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ glVertex3f(vertex.position.x,\ vertex.position.y,\ vertex.position.z);}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ SendVertex(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}\&\ vertex,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00186\ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ glColor3ub(color.r,\ color.g,\ color.b);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ glVertex3f(vertex.position.x,\ vertex.position.y,\ vertex.position.z);}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{void}\ init(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00192\ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ glMatrixMode(GL\_PROJECTION);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ glLoadIdentity();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ camera.SetAvailable();}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ glMatrixMode(GL\_MODELVIEW);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ glPointSize(5);}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ glEnable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ glEnable(GL\_CULL\_FACE);\ \textcolor{comment}{//glDisable(GL\_CULL\_FACE);}}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ RenderPoint(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00203\ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ glBegin(GL\_POINTS);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ glColor3ub(color.r,\ color.g,\ color.b);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ glVertex3f(x,\ y,\ z);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{void}\ RenderPicture(std::vector<Vector3>\ v,\ \textcolor{keywordtype}{long}\ z\_max,\ \textcolor{keywordtype}{long}\ z\_min,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ vec\ :\ v)}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//RenderPoint(vec.x,\ vec.y,\ vec.z,\ Color(255,\ 255,\ 255));}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ xyz\_color\ =\ GradientColorY(vec.y,\ z\_max,\ z\_min);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ RenderPoint(vec.x,\ vec.y,\ vec.z,\ \mbox{\hyperlink{struct_color}{Color}}(xyz\_color.x,\ xyz\_color.y,\ xyz\_color.z));}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{void}\ RenderPoints(\textcolor{keyword}{const}\ std::vector<Vector3>\&\ points,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00221\ \ \ \ \ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pSize\ =\ points.size();}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ glBegin(GL\_POINTS);}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ glColor3ub(color.r,\ color.g,\ color.b);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (pSize-\/-\/)}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ glVertex3f(points[pSize].x,\ points[pSize].y,\ points[pSize].z);}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{void}\ RenderVector(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\ vector,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00233\ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ glBegin(GL\_LINES);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ glColor3ub(color.r,\ color.g,\ color.b);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ glVertex3f(0,\ 0,\ 0);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ glVertex3f(vector.x,\ vector.y,\ vector.z);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{void}\ RenderVector(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ vector,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ startPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00242\ \ \ \ \ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ glBegin(GL\_LINES);}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ glColor3ub(color.r,\ color.g,\ color.b);}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ glVertex3f(startPoint.x,\ startPoint.y,\ startPoint.z);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ glVertex3f(startPoint.x\ +\ vector.x,\ startPoint.y\ +\ vector.y,\ startPoint.z\ +\ vector.z);}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{void}\ RenderCootrdinates()}
+\DoxyCodeLine{00251\ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ glBegin(GL\_LINES);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ glColor3ub(255,\ 0,\ 0);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ glVertex3f(-\/200,\ 0,\ 0);}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ glVertex3f(200,\ 0,\ 0);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ glColor3ub(0,\ 255,\ 0);}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ glVertex3f(0,\ 0,\ 0);}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ glVertex3f(0,\ 200,\ 0);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ glColor3ub(0,\ 0,\ 255);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ glVertex3f(0,\ 0,\ -\/200);}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ glVertex3f(0,\ 0,\ 200);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{void}\ RenderGrid(\textcolor{keywordtype}{float}\ startX,\ \textcolor{keywordtype}{float}\ endX,\ \textcolor{keywordtype}{unsigned}\ amountX,\ \textcolor{keywordtype}{float}\ startZ,\ \textcolor{keywordtype}{float}\ endZ,\ \textcolor{keywordtype}{unsigned}\ amountZ,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00268\ \ \ \ \ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ glBegin(GL\_LINES);}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ glColor3ub(color.r,\ color.g,\ color.b);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx\ =\ (endX\ -\/\ startX)\ /\ amountX,\ cx\ =\ startX;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ x\ =\ 0;}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (x;\ x\ <\ amountX;\ x++)}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((cx\ -\/\ dx)\ !=\ 0)}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glVertex3f(cx\ -\/\ dx,\ height,\ startZ\ -\/\ dx);}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glVertex3f(cx\ -\/\ dx,\ height,\ endZ\ -\/\ dx);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cx\ +=\ dx;}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cx\ +=\ dx;}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dz\ =\ (endZ\ -\/\ startZ)\ /\ amountZ,\ cz\ =\ startZ;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ z\ =\ 0;}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (z;\ z\ <\ amountZ;\ z++)}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((cz\ -\/\ dz)\ !=\ 0)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glVertex3f(startX\ -\/\ dz,\ height,\ cz\ -\/\ dz);}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glVertex3f(endX\ -\/\ dz,\ height,\ cz\ -\/\ dz);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ cz\ +=\ dz;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ glEnd();}
+\DoxyCodeLine{00301\ \ \ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordtype}{void}\ BeginFrame(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00304\ \ \ \ \ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ glClear(GL\_COLOR\_BUFFER\_BIT\ |\ GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ glMatrixMode(GL\_MODELVIEW);}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ glLoadIdentity();}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ camera.UpdatePosition();}
+\DoxyCodeLine{00310\ \ \ \ \ \}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{void}\ EndFrame(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00312\ \ \ \ \ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ glFlush();}
+\DoxyCodeLine{00314\ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \};}
+
+\end{DoxyCode}

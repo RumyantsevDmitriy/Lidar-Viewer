@@ -1,0 +1,264 @@
+\hypertarget{_lidar_viewer_8h_source}{}\doxysection{Lidar\+Viewer.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <gl/GL.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <gl/GLU.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}Components.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}OpenGL32.lib"{}})}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MainWindowSizeX\ \ \ \ \ 1600}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MainWindowSizeY\ \ \ \ \ 958}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ GLWindowSizeX\ \ \ \ \ \ \ 1600}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ GLWindowSizeY\ \ \ \ \ \ \ 900}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ GLWindowPosX\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ GLWindowPosY\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ CMDCameraPos1\ \ \ \ \ \ \ 10}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ CMDCameraPos2\ \ \ \ \ \ \ 11}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ CMDCameraPos3\ \ \ \ \ \ \ 12}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ CMDCameraPos4\ \ \ \ \ \ \ 13}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ CMDCameraPosFree\ \ \ \ 14}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ CMDCameraOrtho\ \ \ \ \ \ 15}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ CMDCameraPersp\ \ \ \ \ \ 16}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ CMDOpenFile\ \ \ \ \ \ \ \ \ 17}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ CMDSaveFile\ \ \ \ \ \ \ \ \ 18}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ CMDExit\ \ \ \ \ \ \ \ \ \ \ \ \ 19}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ HDC\ \ \ \ \ hDC;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ device\ context\ */}}
+\DoxyCodeLine{00042\ HGLRC\ \ \ hGLRC;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ render\ context\ (opengl\ context)\ */}}
+\DoxyCodeLine{00043\ HWND\ \ \ \ hWnd,\ GLWnd;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ window\ */}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{bool}\ cameraIsFree\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{bool}\ fileIsOpen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{bool}\ fileIsOpenNow\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ extension\ =\ -\/1;}
+\DoxyCodeLine{00050\ std::string\ fileName\ =\ \{\};}
+\DoxyCodeLine{00051\ std::vector\ <Vector3>\ scan;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ HMENU\ \ \ CameraPosMenu,\ CameraModeMenu,\ OpenFileMenu;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \mbox{\hyperlink{class_renderer}{Renderer}}\ renderer\ =\ \mbox{\hyperlink{class_renderer}{Renderer}}(\mbox{\hyperlink{class_camera}{Camera}}(\mbox{\hyperlink{struct_vector3}{Vector3}}(3,\ 4,\ 3),\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ 1,\ 0)));}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ std::vector<Vector3>\ points\ =\ \mbox{\hyperlink{struct_vector3_a62616cffddc07e0f290fa9ac8e5648c5}{Vector3::CirclePoints}}(4,\ 6,\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ 3.5f,\ 0),\ Quaternion::EulerAngles(0.07f,\ 0.5f,\ 0.059f));}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ LRESULT\ CALLBACK\ MainWndProcedure(HWND\ hWnd,\ UINT\ message,\ WPARAM\ wParam,\ LPARAM\ lParam);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{int}\ WINAPI\ wWinMain(HINSTANCE\ hInstance,\ HINSTANCE\ hPrevInstance,\ LPWSTR\ lpCmdLine,\ \textcolor{keywordtype}{int}\ nCmdShow);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ ExitSoftware()}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ wglMakeCurrent(hDC,\ NULL);}
+\DoxyCodeLine{00069\ \ \ \ \ wglDeleteContext(hGLRC);}
+\DoxyCodeLine{00070\ \ \ \ \ ReleaseDC(hWnd,\ hDC);}
+\DoxyCodeLine{00071\ \ \ \ \ DestroyWindow(hWnd);}
+\DoxyCodeLine{00072\ \ \ \ \ PostQuitMessage(0);}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ ATOM\ MainWndRegisterClass(HINSTANCE\ hInstance,\ HBRUSH\ BGColor,\ HCURSOR\ Cursor,\ HICON\ Icon)}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ WNDCLASSEXW\ wcex;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ wcex.cbSize\ =\ \textcolor{keyword}{sizeof}(WNDCLASSEX);}
+\DoxyCodeLine{00083\ \ \ \ \ wcex.style\ =\ CS\_OWNDC\ |\ CS\_HREDRAW\ |\ CS\_VREDRAW;}
+\DoxyCodeLine{00084\ \ \ \ \ wcex.lpfnWndProc\ =\ (WNDPROC)MainWndProcedure;}
+\DoxyCodeLine{00085\ \ \ \ \ wcex.cbClsExtra\ =\ 0;}
+\DoxyCodeLine{00086\ \ \ \ \ wcex.cbWndExtra\ =\ 0;}
+\DoxyCodeLine{00087\ \ \ \ \ wcex.hInstance\ =\ hInstance;}
+\DoxyCodeLine{00088\ \ \ \ \ wcex.hIcon\ =\ Icon;}
+\DoxyCodeLine{00089\ \ \ \ \ wcex.hCursor\ =\ Cursor;}
+\DoxyCodeLine{00090\ \ \ \ \ wcex.hbrBackground\ =\ BGColor;}
+\DoxyCodeLine{00091\ \ \ \ \ wcex.lpszMenuName\ =\ NULL;}
+\DoxyCodeLine{00092\ \ \ \ \ wcex.lpszClassName\ =\ L\textcolor{stringliteral}{"{}SoftwareMain"{}};}
+\DoxyCodeLine{00093\ \ \ \ \ wcex.hIconSm\ =\ Icon;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ RegisterClassExW(\&wcex);}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ BOOL\ CreateRenderContext(HINSTANCE\ hInstance,\ LPCWSTR\ mainWndName)}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ hWnd\ =\ CreateWindowW(L\textcolor{stringliteral}{"{}SoftwareMain"{}},\ mainWndName,\ WS\_OVERLAPPEDWINDOW\ |\ WS\_CLIPSIBLINGS\ |\ WS\_CLIPCHILDREN,\ 0,\ 0,\ MainWindowSizeX,\ MainWindowSizeY,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ hInstance,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00104\ \ \ \ \ GLWnd\ =\ CreateWindowA(\textcolor{stringliteral}{"{}static"{}},\ NULL,\ WS\_VISIBLE\ |\ WS\_CHILD,\ GLWindowPosX,\ GLWindowPosY,\ GLWindowSizeX,\ GLWindowSizeY,\ hWnd,\ NULL,\ NULL,\ NULL);}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{if}\ (!hWnd)}
+\DoxyCodeLine{00106\ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ PIXELFORMATDESCRIPTOR\ pixelFormatDescriptor\ =\ \{\ 0\ \};}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pixelFormat;}
+\DoxyCodeLine{00112\ \ \ \ \ hDC\ =\ GetDC(GLWnd);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ pixelFormatDescriptor.nSize\ =\ \textcolor{keyword}{sizeof}(PIXELFORMATDESCRIPTOR);}
+\DoxyCodeLine{00115\ \ \ \ \ pixelFormatDescriptor.nVersion\ =\ 1;}
+\DoxyCodeLine{00116\ \ \ \ \ pixelFormatDescriptor.dwFlags\ =\ PFD\_DRAW\_TO\_WINDOW\ |\ PFD\_SUPPORT\_OPENGL;}
+\DoxyCodeLine{00117\ \ \ \ \ pixelFormatDescriptor.iPixelType\ =\ PFD\_TYPE\_RGBA;}
+\DoxyCodeLine{00118\ \ \ \ \ pixelFormatDescriptor.cColorBits\ =\ 32;}
+\DoxyCodeLine{00119\ \ \ \ \ pixelFormat\ =\ ChoosePixelFormat(hDC,\ \&pixelFormatDescriptor);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ SetPixelFormat(hDC,\ pixelFormat,\ \&pixelFormatDescriptor);}
+\DoxyCodeLine{00122\ \ \ \ \ DescribePixelFormat(hDC,\ pixelFormat,\ \textcolor{keyword}{sizeof}(PIXELFORMATDESCRIPTOR),\ \&pixelFormatDescriptor);}
+\DoxyCodeLine{00123\ \ \ \ \ hGLRC\ =\ wglCreateContext(hDC);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ (hGLRC\ !=\ NULL);}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ MainWndAddMenus(HWND\ hWndMain)}
+\DoxyCodeLine{00132\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ HMENU\ RootMenu\ =\ CreateMenu();}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ CameraPosMenu\ =\ CreateMenu();}
+\DoxyCodeLine{00136\ \ \ \ \ CameraModeMenu\ =\ CreateMenu();}
+\DoxyCodeLine{00137\ \ \ \ \ OpenFileMenu\ =\ CreateMenu();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ AppendMenu(CameraPosMenu,\ MF\_STRING,\ CMDCameraPos1,\ \textcolor{stringliteral}{"{}Position\ 1"{}});}
+\DoxyCodeLine{00140\ \ \ \ \ AppendMenu(CameraPosMenu,\ MF\_STRING,\ CMDCameraPos2,\ \textcolor{stringliteral}{"{}Position\ 2"{}});}
+\DoxyCodeLine{00141\ \ \ \ \ AppendMenu(CameraPosMenu,\ MF\_STRING,\ CMDCameraPos3,\ \textcolor{stringliteral}{"{}Position\ 3"{}});}
+\DoxyCodeLine{00142\ \ \ \ \ AppendMenu(CameraPosMenu,\ MF\_STRING,\ CMDCameraPos4,\ \textcolor{stringliteral}{"{}Position\ 4"{}});}
+\DoxyCodeLine{00143\ \ \ \ \ AppendMenu(CameraPosMenu,\ MF\_STRING,\ CMDCameraPosFree,\ \textcolor{stringliteral}{"{}Free\ camera"{}});}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ AppendMenu(CameraModeMenu,\ MF\_STRING,\ CMDCameraOrtho,\ \textcolor{stringliteral}{"{}Ortho"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ AppendMenu(CameraModeMenu,\ MF\_STRING,\ CMDCameraPersp,\ \textcolor{stringliteral}{"{}Perspective"{}});}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ AppendMenu(OpenFileMenu,\ MF\_STRING,\ CMDOpenFile,\ \textcolor{stringliteral}{"{}Open"{}});}
+\DoxyCodeLine{00149\ \ \ \ \ AppendMenu(OpenFileMenu,\ MF\_STRING,\ CMDSaveFile,\ \textcolor{stringliteral}{"{}Save\ as"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ AppendMenu(OpenFileMenu,\ MF\_SEPARATOR,\ NULL,\ NULL);}
+\DoxyCodeLine{00151\ \ \ \ \ AppendMenu(OpenFileMenu,\ MF\_STRING,\ CMDExit,\ \textcolor{stringliteral}{"{}Exit"{}});}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ AppendMenu(RootMenu,\ MF\_POPUP,\ (UINT\_PTR)OpenFileMenu,\ \textcolor{stringliteral}{"{}File"{}});}
+\DoxyCodeLine{00154\ \ \ \ \ AppendMenu(RootMenu,\ MF\_POPUP,\ (UINT\_PTR)CameraPosMenu,\ \textcolor{stringliteral}{"{}Position"{}});}
+\DoxyCodeLine{00155\ \ \ \ \ AppendMenu(RootMenu,\ MF\_POPUP,\ (UINT\_PTR)CameraModeMenu,\ \textcolor{stringliteral}{"{}View\ mode"{}});}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ SetMenu(hWndMain,\ RootMenu);}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ OpenFile()}
+\DoxyCodeLine{00164\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ OPENFILENAME\ ofn;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{char}\ szFile[260];}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{char}\ szFileTitle[260];}
+\DoxyCodeLine{00168\ \ \ \ \ ZeroMemory(\&ofn,\ \textcolor{keyword}{sizeof}(ofn));}
+\DoxyCodeLine{00169\ \ \ \ \ ofn.lStructSize\ =\ \textcolor{keyword}{sizeof}(ofn);}
+\DoxyCodeLine{00170\ \ \ \ \ ofn.hwndOwner\ =\ hWnd;}
+\DoxyCodeLine{00171\ \ \ \ \ ofn.lpstrFile\ =\ szFile;}
+\DoxyCodeLine{00172\ \ \ \ \ ofn.lpstrFile[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00173\ \ \ \ \ ofn.nMaxFile\ =\ \textcolor{keyword}{sizeof}(szFile);}
+\DoxyCodeLine{00174\ \ \ \ \ ofn.lpstrFilter\ =\ \textcolor{stringliteral}{"{}obj\(\backslash\)0*.*\(\backslash\)0lidar\(\backslash\)0"{}};}
+\DoxyCodeLine{00175\ \ \ \ \ ofn.nFilterIndex\ =\ 1;}
+\DoxyCodeLine{00176\ \ \ \ \ ofn.lpstrFileTitle\ =\ szFileTitle;}
+\DoxyCodeLine{00177\ \ \ \ \ ofn.lpstrFileTitle[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00178\ \ \ \ \ ofn.nMaxFileTitle\ =\ \textcolor{keyword}{sizeof}(szFileTitle);}
+\DoxyCodeLine{00179\ \ \ \ \ ofn.lpstrInitialDir\ =\ NULL;}
+\DoxyCodeLine{00180\ \ \ \ \ ofn.Flags\ =\ OFN\_PATHMUSTEXIST\ |\ OFN\_FILEMUSTEXIST;}
+\DoxyCodeLine{00181\ \ \ \ \ ofn.nFileExtension\ =\ 0;}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{if}\ (GetOpenFileName(\&ofn)\ ==\ TRUE)}
+\DoxyCodeLine{00184\ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ fileName\ =\ ofn.lpstrFile;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ fileIsOpenNow\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileName.substr(ofn.nFileExtension)\ ==\ \textcolor{stringliteral}{"{}obj"{}})}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ extension\ =\ 0;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ fileIsOpen\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (fileName.substr(ofn.nFileExtension)\ ==\ \textcolor{stringliteral}{"{}lidar"{}})}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ extension\ =\ 1;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ fileIsOpen\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox(hWnd,\ \textcolor{stringliteral}{"{}Can\ not\ open\ file"{}},\ \textcolor{stringliteral}{"{}Notification"{}},\ 0);}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ fileIsOpen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ PostMessageA(hWnd,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{00205\ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00207\ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ MessageBox(hWnd,\ \textcolor{stringliteral}{"{}The\ file\ was\ not\ selected"{}},\ \textcolor{stringliteral}{"{}Notification"{}},\ 0);}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00216\ \textcolor{keywordtype}{void}\ SaveFile()}
+\DoxyCodeLine{00217\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ HANDLE\ hf;}
+\DoxyCodeLine{00219\ \ \ \ \ OPENFILENAME\ ofn;}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{char}\ szFile[260];}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{char}\ szFileTitle[260];}
+\DoxyCodeLine{00222\ \ \ \ \ ZeroMemory(\&ofn,\ \textcolor{keyword}{sizeof}(ofn));}
+\DoxyCodeLine{00223\ \ \ \ \ ofn.lStructSize\ =\ \textcolor{keyword}{sizeof}(ofn);}
+\DoxyCodeLine{00224\ \ \ \ \ ofn.hwndOwner\ =\ hWnd;}
+\DoxyCodeLine{00225\ \ \ \ \ ofn.lpstrFile\ =\ szFile;}
+\DoxyCodeLine{00226\ \ \ \ \ ofn.lpstrFile[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00227\ \ \ \ \ ofn.nMaxFile\ =\ \textcolor{keyword}{sizeof}(szFile);}
+\DoxyCodeLine{00228\ \ \ \ \ ofn.lpstrFilter\ =\ \textcolor{stringliteral}{"{}obj\(\backslash\)0"{}};}
+\DoxyCodeLine{00229\ \ \ \ \ ofn.nFilterIndex\ =\ 1;}
+\DoxyCodeLine{00230\ \ \ \ \ ofn.lpstrFileTitle\ =\ szFileTitle;}
+\DoxyCodeLine{00231\ \ \ \ \ ofn.lpstrFileTitle[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00232\ \ \ \ \ ofn.nMaxFileTitle\ =\ \textcolor{keyword}{sizeof}(szFileTitle);}
+\DoxyCodeLine{00233\ \ \ \ \ ofn.lpstrInitialDir\ =\ NULL;}
+\DoxyCodeLine{00234\ \ \ \ \ ofn.Flags\ =\ NULL;}
+\DoxyCodeLine{00235\ \ \ \ \ std::string\ fileNameSave\ =\ \{\};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{if}\ (fileIsOpen)}
+\DoxyCodeLine{00238\ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetSaveFileNameA(\&ofn)\ ==\ TRUE)}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ fileNameSave\ =\ ofn.lpstrFile;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fileNameSave.substr(ofn.nFileExtension)\ ==\ \textcolor{stringliteral}{"{}obj"{}})}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ s;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ in(ofn.lpstrFile);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\ <<\ \textcolor{stringliteral}{"{}o\ Lidar\_scan"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ scan.size();\ i++)}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(\textcolor{charliteral}{'v'});}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.insert(s.size(),\ std::to\_string(scan[i].x));}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.insert(s.size(),\ std::to\_string(scan[i].y));}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.push\_back(\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s.insert(s.size(),\ std::to\_string(scan[i].z));}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\ <<\ s\ <<\ std::endl;}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in.close();}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox(hWnd,\ \textcolor{stringliteral}{"{}Can\ not\ save\ file\ -\/\ it\ has\ to\ be\ .obj"{}},\ \textcolor{stringliteral}{"{}Notification"{}},\ 0);}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ MessageBox(hWnd,\ \textcolor{stringliteral}{"{}Can\ not\ save\ file"{}},\ \textcolor{stringliteral}{"{}Notification"{}},\ 0);}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00272\ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00274\ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ MessageBox(hWnd,\ \textcolor{stringliteral}{"{}Can\ not\ save\ file\ -\/\ you\ have\ to\ open\ file"{}},\ \textcolor{stringliteral}{"{}Notification"{}},\ 0);}
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \}}
+
+\end{DoxyCode}

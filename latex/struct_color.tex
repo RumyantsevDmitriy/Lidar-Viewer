@@ -1,0 +1,65 @@
+\hypertarget{struct_color}{}\doxysection{Color Struct Reference}
+\label{struct_color}\index{Color@{Color}}
+
+
+{\ttfamily \#include $<$Graphics.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_color_a70388d3cc2a5566424367306a69247da}\label{struct_color_a70388d3cc2a5566424367306a69247da}} 
+{\bfseries Color} (\mbox{\hyperlink{struct_vector3}{Vector3}} from\+Vector3)
+\item 
+\mbox{\Hypertarget{struct_color_a2a7b52f14973a01600be1ad47c6a2e7f}\label{struct_color_a2a7b52f14973a01600be1ad47c6a2e7f}} 
+{\bfseries Color} (COLORREF from\+Color\+Ref)
+\item 
+\mbox{\Hypertarget{struct_color_a6f9c93b6e5d2dc23c45cdb2613cd2226}\label{struct_color_a6f9c93b6e5d2dc23c45cdb2613cd2226}} 
+{\bfseries Color} (long R, long G, long B)
+\item 
+\mbox{\Hypertarget{struct_color_a4812bf4f4888f52b75d548916cd32cad}\label{struct_color_a4812bf4f4888f52b75d548916cd32cad}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries operator$\ast$} (const float \&value)
+\item 
+\mbox{\Hypertarget{struct_color_a935e293a64439e0e966d5144a77152a1}\label{struct_color_a935e293a64439e0e966d5144a77152a1}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries operator/} (const float \&value)
+\item 
+\mbox{\Hypertarget{struct_color_a703745a3229fec690f0c8ec86ff5a92f}\label{struct_color_a703745a3229fec690f0c8ec86ff5a92f}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries operator+} (const \mbox{\hyperlink{struct_color}{Color}} \&second)
+\item 
+\mbox{\Hypertarget{struct_color_aa5be675a7a0826f5a4da1c7218074988}\label{struct_color_aa5be675a7a0826f5a4da1c7218074988}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries operator-\/} (const \mbox{\hyperlink{struct_color}{Color}} \&second)
+\item 
+\mbox{\Hypertarget{struct_color_aeca0c182402273032b113dd748d70525}\label{struct_color_aeca0c182402273032b113dd748d70525}} 
+void {\bfseries invert} (void)
+\begin{DoxyCompactList}\small\item\em Invertes current color instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_color_a20be542c0cab13749391c6fbc380cdfe}\label{struct_color_a20be542c0cab13749391c6fbc380cdfe}} 
+\mbox{\hyperlink{struct_color}{Color}} {\bfseries Inverted} (void) const
+\begin{DoxyCompactList}\small\item\em Returns inverted variant of this \mbox{\hyperlink{struct_color}{Color}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_color_ab63786e368b5fe8e462bc5d802658bd6}\label{struct_color_ab63786e368b5fe8e462bc5d802658bd6}} 
+\mbox{\hyperlink{struct_vector3}{Vector3}} {\bfseries to\+Vector3} (void) const
+\begin{DoxyCompactList}\small\item\em Converts current \mbox{\hyperlink{struct_color}{Color}} (R, G, B) to \mbox{\hyperlink{struct_vector3}{Vector3}} (X, Y, Z) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_color_adce70a1178cab2eecacfa23bd5c3b8ad}\label{struct_color_adce70a1178cab2eecacfa23bd5c3b8ad}} 
+static \mbox{\hyperlink{struct_color}{Color}} {\bfseries Lerp} (\mbox{\hyperlink{struct_color}{Color}} a, \mbox{\hyperlink{struct_color}{Color}} b, float t)
+\begin{DoxyCompactList}\small\item\em Returns \mbox{\hyperlink{struct_color}{Color}}, which is linear interpolated between two given Colors with parameter t = \mbox{[}0; 1\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_color_ab9a9c7134511f9b116a6fcc81a303ba6}\label{struct_color_ab9a9c7134511f9b116a6fcc81a303ba6}} 
+unsigned char {\bfseries r}
+\item 
+\mbox{\Hypertarget{struct_color_adc506c5063609cacdda2c007da3b7a5f}\label{struct_color_adc506c5063609cacdda2c007da3b7a5f}} 
+unsigned char {\bfseries g}
+\item 
+\mbox{\Hypertarget{struct_color_a9f00605f7024dcb79342e97fae52c1bd}\label{struct_color_a9f00605f7024dcb79342e97fae52c1bd}} 
+unsigned char {\bfseries b}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Структура, отвечающая за цвет 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Graphics.\+h\end{DoxyCompactItemize}

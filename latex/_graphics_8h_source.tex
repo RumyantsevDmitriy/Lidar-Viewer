@@ -1,0 +1,376 @@
+\hypertarget{_graphics_8h_source}{}\doxysection{Graphics.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Geometry.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_color}{Color}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ClampColor(\textcolor{keywordtype}{long}\ value)}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ 0)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\ >\ 255\ ?\ 255\ :\ (\textcolor{keywordtype}{unsigned}\ char)value;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ r,\ g,\ b;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}()}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ r\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ g\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ b\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}(\mbox{\hyperlink{struct_vector3}{Vector3}}\ fromVector3)}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ r\ =\ (\textcolor{keywordtype}{unsigned}\ char)fromVector3.x;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ g\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char})fromVector3.y;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ b\ =\ (\textcolor{keywordtype}{unsigned}\ char)fromVector3.z;}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}(COLORREF\ fromColorRef)}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ b\ =\ (fromColorRef\ >>\ 16)\ \&\ 0xFF;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ g\ =\ (fromColorRef\ >>\ 8)\ \&\ 0xFF;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ r\ =\ fromColorRef\ \&\ 0xFF;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}(\textcolor{keywordtype}{long}\ R,\ \textcolor{keywordtype}{long}\ G,\ \textcolor{keywordtype}{long}\ B)}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ r\ =\ ClampColor(R);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ g\ =\ ClampColor(G);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ b\ =\ ClampColor(B);}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ operator\ *\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ value)}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_color}{Color}}((\textcolor{keywordtype}{long})(value\ *\ r),\ (\textcolor{keywordtype}{long})(value\ *\ g),\ (\textcolor{keywordtype}{long})(value\ *\ b));}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ operator\ /\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ value)}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_color}{Color}}((\textcolor{keywordtype}{long})(value\ /\ r),\ (\textcolor{keywordtype}{long})(value\ /\ g),\ (\textcolor{keywordtype}{long})(value\ /\ b));}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ operator\ +\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ second)}
+\DoxyCodeLine{00059\ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_color}{Color}}((\textcolor{keywordtype}{long})r\ +\ (\textcolor{keywordtype}{long})second.r,\ (\textcolor{keywordtype}{long})g\ +\ (\textcolor{keywordtype}{long})second.g,\ (\textcolor{keywordtype}{long})b\ +\ (\textcolor{keywordtype}{long})second.b);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ operator\ -\/\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ second)}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_color}{Color}}((\textcolor{keywordtype}{long})r\ -\/\ (\textcolor{keywordtype}{long})second.r,\ (\textcolor{keywordtype}{long})g\ -\/\ (\textcolor{keywordtype}{long})second.g,\ (\textcolor{keywordtype}{long})b\ -\/\ (\textcolor{keywordtype}{long})second.b);}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_color}{Color}}\ \mbox{\hyperlink{struct_color_adce70a1178cab2eecacfa23bd5c3b8ad}{Lerp}}(\mbox{\hyperlink{struct_color}{Color}}\ a,\ \mbox{\hyperlink{struct_color}{Color}}\ b,\ \textcolor{keywordtype}{float}\ t)}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_color}{Color}}(\mbox{\hyperlink{struct_vector3_a6f932c99af743b6b58c60439cee34759}{Vector3::Lerp}}(a.\mbox{\hyperlink{struct_color_ab63786e368b5fe8e462bc5d802658bd6}{toVector3}}(),\ b.\mbox{\hyperlink{struct_color_ab63786e368b5fe8e462bc5d802658bd6}{toVector3}}(),\ t));}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_color_aeca0c182402273032b113dd748d70525}{invert}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ r\ =\ \string~r;\ g\ =\ \string~g;\ b\ =\ \string~b;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ \mbox{\hyperlink{struct_color_a20be542c0cab13749391c6fbc380cdfe}{Inverted}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00081\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_color}{Color}}(\string~r,\ \string~g,\ \string~b);}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{struct_color_ab63786e368b5fe8e462bc5d802658bd6}{toVector3}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vector3}{Vector3}}(r,\ g,\ b);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \}\ \mbox{\hyperlink{struct_color}{Color}};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_material}{Material}}}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{enum\ class}\ Shader}
+\DoxyCodeLine{00099\ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ unlit\ =\ 0,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ diffuse\ =\ 1,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ realistic\ =\ 2,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ faceorient\ =\ 3}
+\DoxyCodeLine{00104\ \ \ \ \ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ \ \ Shader\ \mbox{\hyperlink{class_material_a1a1e50dfb46cf79db10c67841f87d9c2}{shader}};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_material_a97fc4551763505f23dac24a9901cee88}{metallic}},\ roughness;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ \mbox{\hyperlink{class_material_aa8de7572673c8bf388d5e38d20243864}{metal}};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ \mbox{\hyperlink{class_material_aee933cf8b3d51f4cc5c72efe4e9e432d}{facefront}}\ =\ \mbox{\hyperlink{struct_color}{Color}}(65,\ 93,\ 255),\ faceback\ =\ \mbox{\hyperlink{struct_color}{Color}}(255,\ 40,\ 62);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_material_a2b80a031e5744e897326e9786ef068c2}{faceorientfactor}}\ =\ 0.9f;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_material}{Material}}()}
+\DoxyCodeLine{00122\ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_a1a1e50dfb46cf79db10c67841f87d9c2}{shader}}\ =\ Shader::unlit;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_a97fc4551763505f23dac24a9901cee88}{metallic}}\ =\ 0;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ roughness\ =\ 0;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_aa8de7572673c8bf388d5e38d20243864}{metal}}\ =\ \mbox{\hyperlink{struct_color}{Color}}(154,\ 160,\ 161);}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{class_material}{Material}}(Shader\ shaderType)}
+\DoxyCodeLine{00129\ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_a1a1e50dfb46cf79db10c67841f87d9c2}{shader}}\ =\ shaderType;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_a97fc4551763505f23dac24a9901cee88}{metallic}}\ =\ 0;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ roughness\ =\ 0.8f;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_aa8de7572673c8bf388d5e38d20243864}{metal}}\ =\ \mbox{\hyperlink{struct_color}{Color}}(154,\ 160,\ 161);}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{class_material}{Material}}(Shader\ shaderType,\ \textcolor{keywordtype}{float}\ Metallic,\ \textcolor{keywordtype}{float}\ Roughness)}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_a1a1e50dfb46cf79db10c67841f87d9c2}{shader}}\ =\ shaderType;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_a97fc4551763505f23dac24a9901cee88}{metallic}}\ =\ Metallic\ *\ 0.75f;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ roughness\ =\ Roughness;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_material_aa8de7572673c8bf388d5e38d20243864}{metal}}\ =\ \mbox{\hyperlink{struct_color}{Color}}(108,\ 107,\ 117);}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vertex3}{Vertex3}}}
+\DoxyCodeLine{00148\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ position;}
+\DoxyCodeLine{00150\ \ \ \ \ \mbox{\hyperlink{struct_color}{Color}}\ color;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{struct_vertex3}{Vertex3}}()}
+\DoxyCodeLine{00153\ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ position\ =\ \mbox{\hyperlink{struct_vector3}{Vector3}}();}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ color\ =\ \mbox{\hyperlink{struct_color}{Color}}();}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ \ \ \ \ \mbox{\hyperlink{struct_vertex3}{Vertex3}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ pos)}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ position\ =\ pos;}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ color\ =\ \mbox{\hyperlink{struct_color}{Color}}();}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{struct_vertex3}{Vertex3}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ pos,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ col)}
+\DoxyCodeLine{00163\ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ position\ =\ pos;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ color\ =\ col;}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \}\ \mbox{\hyperlink{struct_vertex3}{Vertex3}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_triangle}{Triangle}}}
+\DoxyCodeLine{00173\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{struct_vertex3}{Vertex3}}\ a,\ b,\ c;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{struct_triangle}{Triangle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}\&\ A,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}\&\ B,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}\&\ C)}
+\DoxyCodeLine{00177\ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ a\ =\ A,\ b\ =\ B,\ c\ =\ C;}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{struct_triangle}{Triangle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ A,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ B,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ C,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00181\ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ a\ =\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}(A,\ color),\ b\ =\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}(B,\ color),\ c\ =\ \mbox{\hyperlink{struct_vertex3}{Vertex3}}(C,\ color);}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{struct_triangle_a8dfa8885bea8c2be9748aded1dd06c03}{Normal}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00187\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vx1\ =\ a.position.x\ -\/\ b.position.x,\ vx2\ =\ b.position.x\ -\/\ c.position.x;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vy1\ =\ a.position.y\ -\/\ b.position.y,\ vy2\ =\ b.position.y\ -\/\ c.position.y;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ vz1\ =\ a.position.z\ -\/\ b.position.z,\ vz2\ =\ b.position.z\ -\/\ c.position.z;}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vector3}{Vector3}}(vy1\ *\ vz2\ -\/\ vz1\ *\ vy2,\ vz1\ *\ vx2\ -\/\ vx1\ *\ vz2,\ vx1\ *\ vy2\ -\/\ vy1\ *\ vx2).\mbox{\hyperlink{struct_vector3_af8b8fcf4aa94b7c24bea8b2224fe3e4d}{Normal}}();}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_triangle_a7f7f5f2bfd40b9fa589b929a2769a545}{SetColor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_color}{Color}}\&\ color)}
+\DoxyCodeLine{00197\ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ a.color\ =\ color;\ b.color\ =\ color;\ c.color\ =\ color;}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}\ \mbox{\hyperlink{struct_triangle_a0b2feda74516d80b445ee6d49e6fc00d}{Center}}(\textcolor{keywordtype}{void})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00203\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vector3}{Vector3}}(a.position.x\ +\ b.position.x\ +\ c.position.x,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ a.position.y\ +\ b.position.y\ +\ c.position.y,}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ a.position.z\ +\ b.position.z\ +\ c.position.z)\ /\ 3.0f;}
+\DoxyCodeLine{00207\ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \}\ \mbox{\hyperlink{struct_triangle}{Triangle}};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mesh}{Mesh}}}
+\DoxyCodeLine{00214\ \{}
+\DoxyCodeLine{00215\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00216\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00218\ \ \ \ \ std::vector<Vector3>\ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00221\ \ \ \ \ std::vector<unsigned>\ \mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}()}
+\DoxyCodeLine{00224\ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}\ =\ \{\};}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}\ =\ \{\};}
+\DoxyCodeLine{00227\ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::vector<Vector3>\&\ vertexList,\ \textcolor{keyword}{const}\ std::vector<unsigned>\&\ triangleList)}
+\DoxyCodeLine{00229\ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}\ =\ vertexList;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}\ =\ triangleList;}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_mesh}{Mesh}}\&\ second)}
+\DoxyCodeLine{00235\ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ addCombined\ =\ \mbox{\hyperlink{class_mesh}{Mesh}}(\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}},\ \mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}});}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ szCurVerts\ =\ (unsigned)\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.size();}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ szAddTris\ =\ second.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.size();}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ addCombined.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.insert(addCombined.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.begin(),\ second.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.begin(),\ second.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.end());}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ szAddTris;\ ++i)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ addCombined.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(second.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}[i]\ +\ szCurVerts);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ addCombined;}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a329aea41bccf7aa114c13c89261279a4}{Clear}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00252\ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.clear();}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.clear();}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a55b48b1c04997ffa1cc0f332484b3149}{AddPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ position)}
+\DoxyCodeLine{00259\ \ \ \ \ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ vertSz\ =\ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.size();}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ vertSz;\ ++i)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}[i]\ =\ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}[i]\ +\ position;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_ab887fbc57d442876b8c1471dab9595cb}{AddRotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_quaternion}{Quaternion}}\&\ rotation)}
+\DoxyCodeLine{00269\ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ vertSz\ =\ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.size();}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ vertSz;\ ++i)}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}[i].Rotatate(rotation);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a6ee83aec8417de229b2da181cf7f1f9e}{AddScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ scale)}
+\DoxyCodeLine{00279\ \ \ \ \ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ vertSz\ =\ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.size();}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ vertSz;\ ++i)}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}[i].MultiplyPairwise(scale);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_aee2dd5994a5354daea659f3545e8209a}{ApplyTransform}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_transform}{Transform}}\&\ transform)}
+\DoxyCodeLine{00289\ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_mesh_a6ee83aec8417de229b2da181cf7f1f9e}{AddScale}}(transform.scale);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_mesh_ab887fbc57d442876b8c1471dab9595cb}{AddRotation}}(transform.rotation);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{class_mesh_a55b48b1c04997ffa1cc0f332484b3149}{AddPosition}}(transform.position);}
+\DoxyCodeLine{00293\ \ \ \ \ \}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_mesh}{Mesh}}\ \mbox{\hyperlink{class_mesh_afb0a52f65dcfc5dc50d9c7407c4a7dc9}{GenerateCone}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\&\ sides,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ radius,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ height)}
+\DoxyCodeLine{00297\ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ nCone\ =\ \mbox{\hyperlink{class_mesh}{Mesh}}();}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sides\ <\ 2)}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nCone;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ std::vector<Vector3>\ circle\ =\ \mbox{\hyperlink{struct_vector3_a62616cffddc07e0f290fa9ac8e5648c5}{Vector3::CirclePoints}}(sides,\ radius,\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ -\/height\ /\ 2.0f,\ 0),\ \mbox{\hyperlink{struct_quaternion}{Quaternion}}());}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.push\_back(\mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ height\ /\ 2.0f,\ 0));}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.insert(nCone.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.end(),\ circle.begin(),\ circle.end());}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (height\ >\ 0)}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ i\ =\ 1;\ i\ <\ sides;\ ++i)}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(i\ +\ 1);}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(i);}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(0);}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(1);}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(sides);}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(0);}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ i\ =\ 1;\ i\ <\ sides;\ ++i)}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(i);}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(i\ +\ 1);}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(0);}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(sides);}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(1);}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ nCone.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(0);}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nCone;}
+\DoxyCodeLine{00334\ \ \ \ \ \}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_mesh}{Mesh}}\ \mbox{\hyperlink{class_mesh_a33d47118a42b2ff57ccb174137234189}{GenerateCylinder}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\&\ sides,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ radius,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ height)}
+\DoxyCodeLine{00338\ \ \ \ \ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ nCylinder\ =\ \mbox{\hyperlink{class_mesh}{Mesh}}();}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sides\ <\ 2)}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nCylinder;}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ std::vector<Vector3>\ circle\ =\ \mbox{\hyperlink{struct_vector3_a62616cffddc07e0f290fa9ac8e5648c5}{Vector3::CirclePoints}}(sides,\ radius,\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ -\/height\ /\ 2.0f,\ 0),\ \mbox{\hyperlink{struct_quaternion}{Quaternion}}(0,\ 0,\ 0,\ 1));}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ i\ =\ 0;\ i\ <\ sides;\ ++i)}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.push\_back(circle[i]);}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.push\_back(circle[i]\ +\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ height,\ 0));}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ i\ =\ 1;\ i\ <\ sides;\ ++i)}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ point\ =\ i\ <<\ 1;}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(point\ -\/\ 2);}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(point\ -\/\ 1);}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(point);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(point);}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(point\ -\/\ 1);}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(point\ +\ 1);}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back((sides\ <<\ 1)\ -\/\ 2);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back((sides\ <<\ 1)\ -\/\ 1);}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(0);}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(0);}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back((sides\ <<\ 1)\ -\/\ 1);}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ nCylinder.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}.push\_back(1);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nCylinder;}
+\DoxyCodeLine{00372\ \ \ \ \ \}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_mesh}{Mesh}}\ \mbox{\hyperlink{class_mesh_ab19199478e8e3309df1525e5257ebb98}{GenerateCuboid}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vector3}{Vector3}}\&\ size)}
+\DoxyCodeLine{00376\ \ \ \ \ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ nCube\ =\ \mbox{\hyperlink{class_mesh}{Mesh}}();}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ nCube.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}\ =\ \{\ 0,\ 2,\ 1,\ 1,\ 2,\ 3,\ 2,\ 6,\ 3,\ 3,\ 6,\ 7,\ 3,\ 7,\ 1,\ 1,\ 7,\ 5,\ 4,\ 5,\ 6,\ 6,\ 5,\ 7,\ 5,\ 4,\ 1,\ 1,\ 4,\ 0,\ 6,\ 2,\ 4,\ 4,\ 2,\ 0\ \};}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ sx\ =\ -\/1;\ sx\ <\ 2;\ sx\ +=\ 2)}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ sz\ =\ -\/1;\ sz\ <\ 2;\ sz\ +=\ 2)}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ sy\ =\ -\/1;\ sy\ <\ 2;\ sy\ +=\ 2)}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nCube.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}.push\_back(\mbox{\hyperlink{struct_vector3}{Vector3}}(size.x\ /\ 2\ *\ sx,\ size.y\ /\ 2\ *\ sy,\ size.z\ /\ 2\ *\ sz));}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nCube;}
+\DoxyCodeLine{00392\ \ \ \ \ \}}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_mesh}{Mesh}}\ \mbox{\hyperlink{class_mesh_ae8e2db2cab0218602fa361a7cc79a8d3}{GenerateIcoSphere}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ radius)}
+\DoxyCodeLine{00396\ \ \ \ \ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ nIco\ =\ \mbox{\hyperlink{class_mesh}{Mesh}}();}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sX\ =\ radius\ *\ 0.5257311f;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ sZ\ =\ radius\ *\ 0.8506508f;}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ nIco.\mbox{\hyperlink{class_mesh_a544c34f2239a8fb890e5c3396f1512bf}{triangles}}\ =\ \{\ 0,\ 1,\ 4,\ \ 0,\ 4,\ \ 9,\ 9,\ 4,\ 5,\ \ 4,\ \ 8,\ 5,\ 4,\ 1,\ 8,\ 8,\ 1,\ \ 10,\ 8,\ 10,\ 3,\ 5,\ 8,\ 3,\ \ 5,\ 3,\ 2,\ 2,\ 3,\ \ 7,}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 7,\ 3,\ 10,\ 7,\ 10,\ 6,\ 7,\ 6,\ 11,\ 11,\ 6,\ 0,\ 0,\ 6,\ 1,\ 6,\ 10,\ 1,\ \ 9,\ 11,\ 0,\ 9,\ 2,\ 11,\ 9,\ 5,\ 2,\ 7,\ 11,\ 2\ \};}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ nIco.\mbox{\hyperlink{class_mesh_a7b4a046c46bfe75ef9d3f80a558facca}{vertices}}\ =\ \{\ \mbox{\hyperlink{struct_vector3}{Vector3}}(-\/sX,\ 0,\ sZ),\ \mbox{\hyperlink{struct_vector3}{Vector3}}(sX,\ 0,\ sZ),\ \ \mbox{\hyperlink{struct_vector3}{Vector3}}(-\/sX,\ 0,\ -\/sZ),\ \mbox{\hyperlink{struct_vector3}{Vector3}}(sX,\ 0,\ -\/sZ),}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ sZ,\ sX),\ \ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ sZ,\ -\/sX),\ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ -\/sZ,\ sX),\ \ \mbox{\hyperlink{struct_vector3}{Vector3}}(0,\ -\/sZ,\ -\/sX),}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vector3}{Vector3}}(sZ,\ sX,\ 0),\ \ \mbox{\hyperlink{struct_vector3}{Vector3}}(-\/sZ,\ sX,\ 0),\ \mbox{\hyperlink{struct_vector3}{Vector3}}(sZ,\ -\/sX,\ 0),\ \ \mbox{\hyperlink{struct_vector3}{Vector3}}(-\/sZ,\ -\/sX,\ 0)\ \};}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nIco;}
+\DoxyCodeLine{00408\ \ \ \ \ \}}
+\DoxyCodeLine{00409\ \};}
+
+\end{DoxyCode}
