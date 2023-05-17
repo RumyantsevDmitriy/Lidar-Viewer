@@ -153,17 +153,15 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 				{
 				case 0:
 					scan = OpenObj(fileName);
-					z_max = MaxCoord(scan);
-					z_min = MinCoord(scan);
 					break;
 				case 1:
 					scan = OpenLidar(fileName);
-					z_max = MaxCoord(scan);
-					z_min = MinCoord(scan);
 					break;
 				}
 			}
-
+			scan = FilterPoints(scan);
+			z_max = MaxCoord(scan);
+			z_min = MinCoord(scan);
 			renderer.RenderPicture(scan, z_max, z_min, Color(255, 255, 255));
 			fileIsOpenNow = false;
 		}

@@ -1,0 +1,12 @@
+﻿  LidarViewer.cpp
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\Loader.h(81,21): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\Components.h(215,53): warning C4244: аргумент: преобразование "long" в "float", возможна потеря данных
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\Components.h(215,46): warning C4244: аргумент: преобразование "long" в "float", возможна потеря данных
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\Components.h(216,78): warning C4244: аргумент: преобразование "float" в "long", возможна потеря данных
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\Components.h(216,65): warning C4244: аргумент: преобразование "float" в "long", возможна потеря данных
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\Components.h(216,52): warning C4244: аргумент: преобразование "float" в "long", возможна потеря данных
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\LidarViewer.h(218,9): warning C4101: hf: неиспользованная локальная переменная
+  The contents of <filesystem> are available only with C++17 or later.
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\LidarViewer.cpp(165,40): warning C4244: аргумент: преобразование "float" в "long", возможна потеря данных
+C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\LidarViewer.cpp(165,33): warning C4244: аргумент: преобразование "float" в "long", возможна потеря данных
+  LidarViewer.vcxproj -> C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\x64\Debug\LidarViewer.exe

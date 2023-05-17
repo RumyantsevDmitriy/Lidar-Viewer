@@ -148,4 +148,19 @@ Vector3 GradientColorY(float z, float z_max, float z_min)
     return xyz_color;
 }
 
+/**
+* Функция, отвечающая за фильтрацию точек
+*/
+std::vector <Vector3> FilterPoints(std::vector <Vector3> v)
+{
+    std::vector <Vector3> v1 = {};
+    for (int i = 0; i < v.size(); i++)
+    {
+        if (v[i].y > 0 && (v[i].x * v[i].x + v[i].y * v[i].y + v[i].z * v[i].z) < 144)
+            v1.push_back(v[i]);
+    }
+
+    return v1;
+}
+
 

@@ -133,6 +133,18 @@
 \DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{return}\ xyz\_color;}
 \DoxyCodeLine{00149\ \}}
 \DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00154\ std::vector\ <Vector3>\ FilterPoints(std::vector\ <Vector3>\ v)}
+\DoxyCodeLine{00155\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ std::vector\ <Vector3>\ v1\ =\ \{\};}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ v.size();\ i++)}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[i].y\ >\ 0\ \&\&\ (v[i].x\ *\ v[i].x\ +\ v[i].y\ *\ v[i].y\ +\ v[i].z\ *\ v[i].z)\ <\ 144)}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ v1.push\_back(v[i]);}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{return}\ v1;}
+\DoxyCodeLine{00164\ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ }
 
 \end{DoxyCode}

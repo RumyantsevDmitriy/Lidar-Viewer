@@ -7,21 +7,22 @@ Searching for msc files...
 Searching for dia files...
 Searching for files to exclude
 Searching INPUT for files to process...
-Searching for files in directory D:/LidarViewer
+Searching for files in directory C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer
 Reading and parsing tag files
 Parsing files
-Preprocessing D:/LidarViewer/Components.h...
-Parsing file D:/LidarViewer/Components.h...
-Preprocessing D:/LidarViewer/Geometry.h...
-Parsing file D:/LidarViewer/Geometry.h...
-Preprocessing D:/LidarViewer/Graphics.h...
-Parsing file D:/LidarViewer/Graphics.h...
-Preprocessing D:/LidarViewer/LidarViewer.cpp...
-Parsing file D:/LidarViewer/LidarViewer.cpp...
-Preprocessing D:/LidarViewer/LidarViewer.h...
-Parsing file D:/LidarViewer/LidarViewer.h...
-Preprocessing D:/LidarViewer/Loader.h...
-Parsing file D:/LidarViewer/Loader.h...
+Preprocessing C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h...
+Parsing file C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h...
+Preprocessing C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h...
+Parsing file C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h...
+Preprocessing C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h...
+Parsing file C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h...
+Preprocessing C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/LidarViewer.cpp...
+Parsing file C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/LidarViewer.cpp...
+Preprocessing C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/LidarViewer.h...
+Parsing file C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/LidarViewer.h...
+Preprocessing C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Loader.h...
+Parsing file C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Loader.h...
+Reading C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md...
 Building macro definition list...
 Building group list...
 Building directory list...
@@ -46,11 +47,11 @@ Computing class inheritance relations...
 Computing class usage relations...
 Flushing cached template relations that have become invalid...
 Computing class relations...
-D:/LidarViewer/Geometry.h:361: warning: Compound Matrix is not documented.
-D:/LidarViewer/Geometry.h:8: warning: Compound Quaternion is not documented.
-D:/LidarViewer/Geometry.h:384: warning: Compound Transform is not documented.
-D:/LidarViewer/Geometry.h:59: warning: Compound Vector2 is not documented.
-D:/LidarViewer/Geometry.h:157: warning: Compound Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:361: warning: Compound Matrix is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:8: warning: Compound Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:384: warning: Compound Transform is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:59: warning: Compound Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:157: warning: Compound Vector3 is not documented.
 Add enum values to enums...
 Searching for member function documentation...
 Creating members for template instances...
@@ -92,112 +93,122 @@ Generating code for file LidarViewer.h...
 Generating code for file Loader.h...
 Generating file documentation...
 Generating page documentation...
+Generating docs for page md_README...
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\Program'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\Windows'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\Include'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\um'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\gl'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\Program'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\Windows'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\um'
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/README.md:9: warning: Found unknown command '\gl'
 Generating group documentation...
 Generating class documentation...
 Generating docs for compound Camera...
-D:/LidarViewer/Components.h:24: warning: Member SetupPerspective(float FOV, float ScreenRatio, float NearClip, float FarClip) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:31: warning: Member SetupOrtho(float planeWidth, float planeHeight, float NearClip, float FarClip) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:38: warning: Member SetupDefault(void) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:51: warning: Member Camera(Vector3 CameraPosition) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:58: warning: Member Camera(Vector3 CameraPosition, Vector3 TargetPosition) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:65: warning: Member Camera(Vector3 CameraPosition, Vector3 TargetPosition, Vector3 AxisDirection) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:73: warning: Member UpdatePosition(void) const (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:82: warning: Member GetFarClip(void) const (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:86: warning: Member GetAxis(void) const (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:90: warning: Member GetCameraPosition(void) const (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:94: warning: Member GetTargetPosition(void) const (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:99: warning: Member Normal(void) const (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:104: warning: Member SetAxis(Vector3 newAxis) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:109: warning: Member SetCameraPosition(Vector3 newPosition) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:114: warning: Member SetTargetPosition(Vector3 newPosition) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:119: warning: Member SetClipDistance(float NearClip, float FarClip) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:125: warning: Member SetPerspective(void) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:131: warning: Member SetOrtho(void) (function) of class Camera is not documented.
-D:/LidarViewer/Components.h:137: warning: Member SetAvailable(void) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:24: warning: Member SetupPerspective(float FOV, float ScreenRatio, float NearClip, float FarClip) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:31: warning: Member SetupOrtho(float planeWidth, float planeHeight, float NearClip, float FarClip) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:38: warning: Member SetupDefault(void) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:51: warning: Member Camera(Vector3 CameraPosition) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:58: warning: Member Camera(Vector3 CameraPosition, Vector3 TargetPosition) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:65: warning: Member Camera(Vector3 CameraPosition, Vector3 TargetPosition, Vector3 AxisDirection) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:73: warning: Member UpdatePosition(void) const (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:82: warning: Member GetFarClip(void) const (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:86: warning: Member GetAxis(void) const (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:90: warning: Member GetCameraPosition(void) const (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:94: warning: Member GetTargetPosition(void) const (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:99: warning: Member Normal(void) const (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:104: warning: Member SetAxis(Vector3 newAxis) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:109: warning: Member SetCameraPosition(Vector3 newPosition) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:114: warning: Member SetTargetPosition(Vector3 newPosition) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:119: warning: Member SetClipDistance(float NearClip, float FarClip) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:125: warning: Member SetPerspective(void) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:131: warning: Member SetOrtho(void) (function) of class Camera is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:137: warning: Member SetAvailable(void) (function) of class Camera is not documented.
 Generating docs for compound Color...
-D:/LidarViewer/Graphics.h:31: warning: Member Color(Vector3 fromVector3) (function) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:37: warning: Member Color(COLORREF fromColorRef) (function) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:43: warning: Member Color(long R, long G, long B) (function) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:50: warning: Member operator*(const float &value) (function) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:54: warning: Member operator/(const float &value) (function) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:58: warning: Member operator+(const Color &second) (function) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:62: warning: Member operator-(const Color &second) (function) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:23: warning: Member r (variable) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:23: warning: Member g (variable) of struct Color is not documented.
-D:/LidarViewer/Graphics.h:23: warning: Member b (variable) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:31: warning: Member Color(Vector3 fromVector3) (function) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:37: warning: Member Color(COLORREF fromColorRef) (function) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:43: warning: Member Color(long R, long G, long B) (function) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:50: warning: Member operator*(const float &value) (function) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:54: warning: Member operator/(const float &value) (function) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:58: warning: Member operator+(const Color &second) (function) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:62: warning: Member operator-(const Color &second) (function) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:23: warning: Member r (variable) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:23: warning: Member g (variable) of struct Color is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:23: warning: Member b (variable) of struct Color is not documented.
 Generating docs for compound Material...
-D:/LidarViewer/Graphics.h:98: warning: Member Shader (enumeration) of class Material is not documented.
-D:/LidarViewer/Graphics.h:128: warning: Member Material(Shader shaderType) (function) of class Material is not documented.
-D:/LidarViewer/Graphics.h:135: warning: Member Material(Shader shaderType, float Metallic, float Roughness) (function) of class Material is not documented.
-D:/LidarViewer/Graphics.h:110: warning: Member roughness (variable) of class Material is not documented.
-D:/LidarViewer/Graphics.h:116: warning: Member faceback (variable) of class Material is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:98: warning: Member Shader (enumeration) of class Material is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:128: warning: Member Material(Shader shaderType) (function) of class Material is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:135: warning: Member Material(Shader shaderType, float Metallic, float Roughness) (function) of class Material is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:110: warning: Member roughness (variable) of class Material is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:116: warning: Member faceback (variable) of class Material is not documented.
 Generating docs for compound Matrix...
 Generating docs for compound Mesh...
-D:/LidarViewer/Graphics.h:228: warning: Member Mesh(const std::vector< Vector3 > &vertexList, const std::vector< unsigned > &triangleList) (function) of class Mesh is not documented.
-D:/LidarViewer/Graphics.h:234: warning: Member operator+(const Mesh &second) (function) of class Mesh is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:228: warning: Member Mesh(const std::vector< Vector3 > &vertexList, const std::vector< unsigned > &triangleList) (function) of class Mesh is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:234: warning: Member operator+(const Mesh &second) (function) of class Mesh is not documented.
 Generating docs for compound Quaternion...
-D:/LidarViewer/Geometry.h:19: warning: Member Quaternion(float X, float Y, float Z, float W) (function) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:27: warning: Member operator*(const Quaternion &second) (function) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:35: warning: Member EulerAngles(const float &angleX, const float &angleY, const float &angleZ) (function) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:47: warning: Member Rad2Deg(const float &radians) (function) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:52: warning: Member Deg2Rad(const float &degrees) (function) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:10: warning: Member x (variable) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:10: warning: Member y (variable) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:10: warning: Member z (variable) of struct Quaternion is not documented.
-D:/LidarViewer/Geometry.h:10: warning: Member w (variable) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:19: warning: Member Quaternion(float X, float Y, float Z, float W) (function) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:27: warning: Member operator*(const Quaternion &second) (function) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:35: warning: Member EulerAngles(const float &angleX, const float &angleY, const float &angleZ) (function) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:47: warning: Member Rad2Deg(const float &radians) (function) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:52: warning: Member Deg2Rad(const float &degrees) (function) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:10: warning: Member x (variable) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:10: warning: Member y (variable) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:10: warning: Member z (variable) of struct Quaternion is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:10: warning: Member w (variable) of struct Quaternion is not documented.
 Generating docs for compound Renderer...
-D:/LidarViewer/Components.h:175: warning: Member Renderer(Camera cameraToUse) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:191: warning: Member init(void) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:202: warning: Member RenderPoint(float x, float y, float z, const Color &color) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:210: warning: Member RenderPicture(std::vector< Vector3 > v, long z_max, long z_min, const Color &color) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:220: warning: Member RenderPoints(const std::vector< Vector3 > &points, const Color &color) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:232: warning: Member RenderVector(const Vector3 vector, const Color &color) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:241: warning: Member RenderVector(const Vector3 &vector, const Vector3 &startPoint, const Color &color) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:250: warning: Member RenderCootrdinates() (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:267: warning: Member RenderGrid(float startX, float endX, unsigned amountX, float startZ, float endZ, unsigned amountZ, float height, const Color &color) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:303: warning: Member BeginFrame(void) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:311: warning: Member EndFrame(void) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:180: warning: Member SendVertex(const Vertex3 &vertex) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:185: warning: Member SendVertex(const Vertex3 &vertex, const Color &color) (function) of class Renderer is not documented.
-D:/LidarViewer/Components.h:156: warning: Member camera (variable) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:175: warning: Member Renderer(Camera cameraToUse) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:191: warning: Member init(void) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:202: warning: Member RenderPoint(float x, float y, float z, const Color &color) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:210: warning: Member RenderPicture(std::vector< Vector3 > v, long z_max, long z_min, const Color &color) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:220: warning: Member RenderPoints(const std::vector< Vector3 > &points, const Color &color) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:232: warning: Member RenderVector(const Vector3 vector, const Color &color) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:241: warning: Member RenderVector(const Vector3 &vector, const Vector3 &startPoint, const Color &color) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:250: warning: Member RenderCootrdinates() (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:267: warning: Member RenderGrid(float startX, float endX, unsigned amountX, float startZ, float endZ, unsigned amountZ, float height, const Color &color) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:303: warning: Member BeginFrame(void) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:311: warning: Member EndFrame(void) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:180: warning: Member SendVertex(const Vertex3 &vertex) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:185: warning: Member SendVertex(const Vertex3 &vertex, const Color &color) (function) of class Renderer is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Components.h:156: warning: Member camera (variable) of class Renderer is not documented.
 Generating docs for compound Transform...
-D:/LidarViewer/Geometry.h:399: warning: Member Transform(const Vector3 &nPos) (function) of class Transform is not documented.
-D:/LidarViewer/Geometry.h:405: warning: Member Transform(const Vector3 &nPos, const Quaternion &nRot) (function) of class Transform is not documented.
-D:/LidarViewer/Geometry.h:411: warning: Member Transform(const Vector3 &nPos, const Quaternion &nRot, const Vector3 &nScale) (function) of class Transform is not documented.
-D:/LidarViewer/Geometry.h:389: warning: Member position (variable) of class Transform is not documented.
-D:/LidarViewer/Geometry.h:390: warning: Member rotation (variable) of class Transform is not documented.
-D:/LidarViewer/Geometry.h:391: warning: Member scale (variable) of class Transform is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:399: warning: Member Transform(const Vector3 &nPos) (function) of class Transform is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:405: warning: Member Transform(const Vector3 &nPos, const Quaternion &nRot) (function) of class Transform is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:411: warning: Member Transform(const Vector3 &nPos, const Quaternion &nRot, const Vector3 &nScale) (function) of class Transform is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:389: warning: Member position (variable) of class Transform is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:390: warning: Member rotation (variable) of class Transform is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:391: warning: Member scale (variable) of class Transform is not documented.
 Generating docs for compound Triangle...
-D:/LidarViewer/Graphics.h:176: warning: Member Triangle(const Vertex3 &A, const Vertex3 &B, const Vertex3 &C) (function) of struct Triangle is not documented.
-D:/LidarViewer/Graphics.h:180: warning: Member Triangle(const Vector3 &A, const Vector3 &B, const Vector3 &C, const Color &color) (function) of struct Triangle is not documented.
-D:/LidarViewer/Graphics.h:174: warning: Member a (variable) of struct Triangle is not documented.
-D:/LidarViewer/Graphics.h:174: warning: Member b (variable) of struct Triangle is not documented.
-D:/LidarViewer/Graphics.h:174: warning: Member c (variable) of struct Triangle is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:176: warning: Member Triangle(const Vertex3 &A, const Vertex3 &B, const Vertex3 &C) (function) of struct Triangle is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:180: warning: Member Triangle(const Vector3 &A, const Vector3 &B, const Vector3 &C, const Color &color) (function) of struct Triangle is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:174: warning: Member a (variable) of struct Triangle is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:174: warning: Member b (variable) of struct Triangle is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:174: warning: Member c (variable) of struct Triangle is not documented.
 Generating docs for compound Vector2...
-D:/LidarViewer/Geometry.h:68: warning: Member Vector2(float X) (function) of struct Vector2 is not documented.
-D:/LidarViewer/Geometry.h:73: warning: Member Vector2(float X, float Y) (function) of struct Vector2 is not documented.
-D:/LidarViewer/Geometry.h:79: warning: Member operator*(const float &value) (function) of struct Vector2 is not documented.
-D:/LidarViewer/Geometry.h:83: warning: Member operator/(const float &value) (function) of struct Vector2 is not documented.
-D:/LidarViewer/Geometry.h:87: warning: Member operator+(const Vector2 &second) (function) of struct Vector2 is not documented.
-D:/LidarViewer/Geometry.h:91: warning: Member operator-(const Vector2 &second) (function) of struct Vector2 is not documented.
-D:/LidarViewer/Geometry.h:61: warning: Member x (variable) of struct Vector2 is not documented.
-D:/LidarViewer/Geometry.h:61: warning: Member y (variable) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:68: warning: Member Vector2(float X) (function) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:73: warning: Member Vector2(float X, float Y) (function) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:79: warning: Member operator*(const float &value) (function) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:83: warning: Member operator/(const float &value) (function) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:87: warning: Member operator+(const Vector2 &second) (function) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:91: warning: Member operator-(const Vector2 &second) (function) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:61: warning: Member x (variable) of struct Vector2 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:61: warning: Member y (variable) of struct Vector2 is not documented.
 Generating docs for compound Vector3...
-D:/LidarViewer/Geometry.h:167: warning: Member Vector3(float X) (function) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:173: warning: Member Vector3(float X, float Y) (function) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:179: warning: Member Vector3(float X, float Y, float Z) (function) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:186: warning: Member operator*(const float &value) (function) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:190: warning: Member operator/(const float &value) (function) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:194: warning: Member operator+(const Vector3 &second) (function) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:198: warning: Member operator-(const Vector3 &second) (function) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:159: warning: Member x (variable) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:159: warning: Member y (variable) of struct Vector3 is not documented.
-D:/LidarViewer/Geometry.h:159: warning: Member z (variable) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:167: warning: Member Vector3(float X) (function) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:173: warning: Member Vector3(float X, float Y) (function) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:179: warning: Member Vector3(float X, float Y, float Z) (function) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:186: warning: Member operator*(const float &value) (function) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:190: warning: Member operator/(const float &value) (function) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:194: warning: Member operator+(const Vector3 &second) (function) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:198: warning: Member operator-(const Vector3 &second) (function) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:159: warning: Member x (variable) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:159: warning: Member y (variable) of struct Vector3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Geometry.h:159: warning: Member z (variable) of struct Vector3 is not documented.
 Generating docs for compound Vertex3...
-D:/LidarViewer/Graphics.h:157: warning: Member Vertex3(const Vector3 &pos) (function) of struct Vertex3 is not documented.
-D:/LidarViewer/Graphics.h:162: warning: Member Vertex3(const Vector3 &pos, const Color &col) (function) of struct Vertex3 is not documented.
-D:/LidarViewer/Graphics.h:149: warning: Member position (variable) of struct Vertex3 is not documented.
-D:/LidarViewer/Graphics.h:150: warning: Member color (variable) of struct Vertex3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:157: warning: Member Vertex3(const Vector3 &pos) (function) of struct Vertex3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:162: warning: Member Vertex3(const Vector3 &pos, const Color &col) (function) of struct Vertex3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:149: warning: Member position (variable) of struct Vertex3 is not documented.
+C:/Users/drumy/Documents/GitHub/Lidar-Viewer/Lidar-Viewer/Graphics.h:150: warning: Member color (variable) of struct Vertex3 is not documented.
 Generating concept documentation...
 Generating namespace index...
 Generating graph info page...
@@ -218,7 +229,7 @@ Generating example index...
 finalizing index lists...
 writing tag file...
 Running plantuml with JAVA...
-type lookup cache used 220/65536 hits=1287 misses=229
-symbol lookup cache used 257/65536 hits=3043 misses=257
+type lookup cache used 223/65536 hits=1292 misses=232
+symbol lookup cache used 260/65536 hits=3049 misses=260
 finished...
 *** Doxygen has finished
