@@ -301,7 +301,7 @@ typedef struct Vector3
 
 		eulerangles.y = atan2f(sinr_cosp, cosr_cosp);
 		eulerangles.x = atan2f(siny_cosp, cosy_cosp);
-		eulerangles.y = (fabs(sinp) >= 1) ? (copysignf(1.5707963f, sinp)) : (std::asinf(sinp)); // use 90 degrees if out of range
+		eulerangles.y = (fabs(sinp) >= 1) ? (copysignf(1.5707963f, sinp)) : (std::isinf(sinp)); // use 90 degrees if out of range
 
 		return eulerangles / 2;
 	}
