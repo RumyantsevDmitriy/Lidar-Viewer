@@ -6,4 +6,4 @@
 P.S. .lidar - это тип данных, который использует наш лидар для записи данных в файл.Он записывает координаты точек в сферической системе координат.
 
 Запуск проекта:
-Для того, чтобы запустить этот проект в Visual Studio, нужно положить в папку с проектом файл freeglut.lib, также нужно скопировать заголовочные файлы из папки freeglut installation в папку C:\Program Files (x86)\Windows Kits\10\Include\[номер версии вашей Visual Studio]\um\gl (например, в моем случае в папку C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\gl).
+Для того, чтобы запустить этот проект в Visual Studio, нужно положить в папку с проектом файл freeglut.lib, также нужно скопировать заголовочные файлы из папки freeglut installation в папку C:\Program Files (x86)\Windows Kits\10\Include\[номер вашей версии]\um\gl (например, в моем случае в папку C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\gl).
