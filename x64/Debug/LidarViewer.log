@@ -9,4 +9,5 @@ C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\LidarViewer.h(218,9): 
   The contents of <filesystem> are available only with C++17 or later.
 C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\LidarViewer.cpp(165,40): warning C4244: аргумент: преобразование "float" в "long", возможна потеря данных
 C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\LidarViewer.cpp(165,33): warning C4244: аргумент: преобразование "float" в "long", возможна потеря данных
+  LINK : не найден или не выполнена сборка C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\x64\Debug\LidarViewer.exe при последней инкрементной компоновке; выполняется полная компоновка
   LidarViewer.vcxproj -> C:\Users\drumy\Documents\GitHub\Lidar-Viewer\Lidar-Viewer\x64\Debug\LidarViewer.exe
